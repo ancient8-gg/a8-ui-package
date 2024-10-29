@@ -1,0 +1,26 @@
+.a8-header {
+  &-wrapper {
+    width: 100%;
+
+    background: var(--a8-component-background);
+  }
+
+  &-container {
+    height: 80px;
+    max-width: 1280px;
+    padding: 0 24px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-brand {
+    cursor: pointer;
+
+    svg {
+      width: 124px;
+    }
+  }
+}

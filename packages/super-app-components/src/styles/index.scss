@@ -1,0 +1,118 @@
+@use './reset';
+
+:root {
+  /* Palette */
+  --a8-primary: #ceff70;
+  --a8-primary-950: #182102;
+
+  /* Base */
+  --a8-font-family: 'Bw Gradual', sans-serif;
+  --a8-base-bg: rgba(255, 255, 255, 0.05);
+
+  --a8-base-color: #666f6c;
+  --a8-base-color-active: #ceff70;
+
+  --a8-transition: all 0.2s ease-in-out;
+
+  /* Components*/
+  --a8-component-background: #0a0d06;
+
+  /* Header */
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-Black.woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-BlackItalic.woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-ExtraBold.woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-ExtraBoldItalic.woff2');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-Bold.woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-BoldItalic.woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-Medium.woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-MediumItalic.woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-Regular.woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-RegularItalic.woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-Light.woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-LightItalic.woff2');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-Thin.woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bw Gradual';
+  src: url('../assets/fonts/BwGradual-Thin.woff2');
+  font-weight: 100;
+  font-style: normal;
+}

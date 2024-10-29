@@ -1,0 +1,28 @@
+.a8-connect-btn {
+  width: 160px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--a8-primary-950);
+
+  border-radius: 8px;
+  border: 1px solid var(--a8-primary);
+
+  color: var(--a8-primary);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-family: var(--a8-font-family);
+
+  &:hover {
+    background-color: var(--a8-primary);
+    color: var(--a8-primary-950);
+  }
+}
+
+.a8-user-nav {
+  border-radius: 9999px;
+  padding: 0;
+  color: var(--a8-primary);
+}

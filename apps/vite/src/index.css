@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background-color: #0f1010;
+  font-size: 16px;
+}
+
+/** {*/
+/*  --a8-base-bg: red !important;*/
+/*}*/
