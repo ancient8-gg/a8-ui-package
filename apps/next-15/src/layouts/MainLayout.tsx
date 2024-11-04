@@ -1,6 +1,7 @@
 import { Header, Sider } from '@ancient8/components'
+import type { PropsWithChildren, ReactNode } from 'react'
 
-function App() {
+function MainLayout({ children }: PropsWithChildren) {
   return (
     <div>
       <Header
@@ -21,9 +22,14 @@ function App() {
             },
           }}
         />
+        {children}
       </div>
     </div>
   )
 }
 
-export default App
+export const getMainLayout = (page: ReactNode) => (
+  <MainLayout>{page}</MainLayout>
+)
+
+export default MainLayout

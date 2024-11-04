@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { ConnectButton as RainbowKitConnectButton } from '@rainbow-me/rainbowkit'
+import { Button, type ButtonProps } from 'antd'
 import clsx from 'clsx'
 
 import AccountAvatar from './AccountAvatar'
-
-import './index.scss'
 
 export type ConnectButtonProps = {
   isSwitchChain?: boolean
@@ -12,70 +11,72 @@ export type ConnectButtonProps = {
   classNames?: {
     connect?: string
     account?: string
-  }
-} & Omit<React.HTMLAttributes<HTMLButtonElement>, 'title'>
+  } & ButtonProps['classNames']
+} & Omit<ButtonProps, 'classNames'>
 
-const ConnectButton = React.forwardRef<HTMLButtonElement, ConnectButtonProps>(
-  (props, ref) => {
-    const { isSwitchChain, className, classNames, ...params } = props
+const InternalConnectButton = React.forwardRef<
+  HTMLButtonElement,
+  ConnectButtonProps
+>((props, ref) => {
+  const { isSwitchChain, className, classNames, ...params } = props
 
-    return (
-      <RainbowKitConnectButton.Custom>
-        {({
-          account,
-          chain,
-          openAccountModal,
-          openConnectModal,
-          authenticationStatus,
-          mounted,
-        }) => {
-          const ready = mounted && authenticationStatus !== 'loading'
-          const connected =
-            ready &&
-            account &&
-            chain &&
-            (!authenticationStatus || authenticationStatus === 'authenticated')
+  return (
+    <RainbowKitConnectButton.Custom>
+      {({
+        account,
+        chain,
+        openAccountModal,
+        openConnectModal,
+        authenticationStatus,
+        mounted,
+      }) => {
+        const ready = mounted && authenticationStatus !== 'loading'
+        const connected =
+          ready &&
+          account &&
+          chain &&
+          (!authenticationStatus || authenticationStatus === 'authenticated')
 
-          if (!connected)
-            return (
-              <button
-                type="button"
-                onClick={openConnectModal}
-                className={clsx(
-                  'a8-connect-btn',
-                  className,
-                  classNames?.connect ?? '',
-                )}
-                {...params}
-                ref={ref}
-              >
-                Connect wallet
-              </button>
-            )
-
+        if (!connected)
           return (
-            <button
-              type="button"
-              onClick={openAccountModal}
-              className={clsx(
-                'a8-user-nav',
-                className,
-                classNames?.account ?? '',
-              )}
-              ref={ref}
+            <Button
               {...params}
+              ref={ref}
+              type="primary"
+              onClick={openConnectModal}
+              className={clsx(
+                'a8-pkg-connect-btn',
+                className,
+                classNames?.connect ?? '',
+              )}
             >
-              <div>
-                <AccountAvatar
-                  address={account.address}
-                  ensAvatar={account.ensAvatar}
-                />
-              </div>
-            </button>
+              Connect wallet
+            </Button>
           )
-        }}
-      </RainbowKitConnectButton.Custom>
-    )
-  },
-)
-export default ConnectButton
+
+        return (
+          <Button
+            {...params}
+            ref={ref}
+            type="primary"
+            onClick={openAccountModal}
+            className={clsx(
+              'a8-pkg-user-nav',
+              className,
+              classNames?.account ?? '',
+            )}
+          >
+            <div>
+              <AccountAvatar
+                address={account.address}
+                ensAvatar={account.ensAvatar}
+              />
+            </div>
+          </Button>
+        )
+      }}
+    </RainbowKitConnectButton.Custom>
+  )
+})
+
+export default InternalConnectButton

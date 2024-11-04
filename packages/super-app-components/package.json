@@ -36,13 +36,15 @@
     }
   },
   "scripts": {
-    "clean": "rimraf ./dist; rimraf ./.turbo",
-    "build": "pnpm build:swc && pnpm types && pnpm build:alias",
+    "clean": "rimraf ./dist; rimraf ./.turbo;",
+    "build": "pnpm gen:style && pnpm build:swc && pnpm types && pnpm build:alias",
+    "prebuild": "pnpm gen:style rimraf ./dist",
     "build:swc": "swc src -d dist --copy-files --strip-leading-paths",
     "build:alias": "tsc-alias",
     "build:types": "tsc --emitDeclarationOnly",
     "dev": "run-p \"build:swc -w\" \"build:types -w\" \"build:alias -w\"",
-    "dev:tsc": "pnpm clean && tsc --watch"
+    "predev": "pnpm gen:style",
+    "gen:style": "rimraf ./src/styles/antd.min.scss; tsx ./scripts/genAntdStyle.ts"
   },
   "peerDependencies": {
     "@rainbow-me/rainbowkit": ">= 2.2.0",
@@ -50,12 +52,15 @@
     "react": ">= 18.0.0",
     "react-dom": ">= 18.0.0",
     "viem": ">= 2.0.0",
-    "wagmi": ">= 2.0.0"
+    "wagmi": ">= 2.0.0",
+    "zustand": ">= 5.0.0"
   },
   "dependencies": {
+    "antd": "^5.21.6",
     "clsx": "^2.1.1"
   },
   "devDependencies": {
+    "@ant-design/static-style-extract": "^1.0.3",
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.36",
     "@swc/helpers": "^0.5.13",
@@ -64,16 +69,17 @@
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.7",
     "chokidar": "^4.0.1",
+    "iconsax-react": "^0.0.8",
     "nodemon": "^3.1.7",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.47",
     "rc-input": "^1.6.3",
-    "react-ionicons": "^4.2.1",
     "react-use": "^17.5.1",
     "rimraf": "^6.0.1",
     "sass": "^1.80.3",
     "tailwindcss": "^3.4.14",
     "tsc-alias": "^1.8.10",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   }
 }

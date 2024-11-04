@@ -1,10 +1,8 @@
-import ConnectButton from '../connect-button'
+import { InternalConnectButton } from '../connect-button'
 import Search from './Search'
-
-import { Brand } from 'assets/icons'
 import { HeaderConfigContext } from './context'
 
-import './header.scss'
+import { Brand } from 'assets/icons'
 
 import type { HeaderProps } from './types'
 
@@ -21,7 +19,7 @@ function Header({ config }: HeaderProps) {
             <Search />
           </div>
 
-          <ConnectButton />
+          <InternalConnectButton />
         </div>
       </div>
     </HeaderConfigContext.Provider>

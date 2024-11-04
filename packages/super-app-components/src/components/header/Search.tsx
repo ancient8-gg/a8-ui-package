@@ -1,10 +1,12 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useDebounce } from 'react-use'
-import Input from 'rc-input'
 
-import { Search as SearchIcon, Close as CloseIcon } from 'react-ionicons'
+import { Input } from 'antd'
 
-import './search.scss'
+import {
+  SearchNormal1 as SearchIcon,
+  CloseCircle as CloseIcon,
+} from 'iconsax-react'
 
 function Search() {
   const [inputVal, setInputVal] = useState('')
@@ -25,18 +27,14 @@ function Search() {
 
   return (
     <Input
-      prefixCls="a8-search-input"
       onChange={({ currentTarget }) => setInputVal(currentTarget.value)}
       placeholder="Search..."
       prefix={
         <div>
-          <SearchIcon color="currentColor" width="16px" height="16px" />
+          <SearchIcon color="currentColor" size={16} />
         </div>
       }
       allowClear={allowClear}
-      classNames={{
-        affixWrapper: 'a8-search-container',
-      }}
     />
   )
 }

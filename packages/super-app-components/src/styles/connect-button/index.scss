@@ -1,9 +1,6 @@
-.a8-connect-btn {
+.a8-pkg-connect-btn {
   width: 160px;
   height: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: var(--a8-primary-950);
 
   border-radius: 8px;
@@ -13,11 +10,10 @@
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
-  font-family: var(--a8-font-family);
 
   &:hover {
-    background-color: var(--a8-primary);
-    color: var(--a8-primary-950);
+    background-color: var(--a8-primary) !important;
+    color: var(--a8-primary-950) !important;
   }
 }
 

@@ -2,8 +2,7 @@ import { useMemo } from 'react'
 import clsx from 'clsx'
 
 import { emojiAvatarForAddress } from 'utils/emoji-avatar'
-
-import './account-avatar.scss'
+import { Avatar } from 'antd'
 
 type AccountAvatarProps = {
   address?: string
@@ -19,18 +18,16 @@ function AccountAvatar({ address, ensAvatar, className }: AccountAvatarProps) {
 
   if (!ensAvatar)
     return (
-      <div
+      <Avatar
         style={{ backgroundColor }}
         className={clsx('a8-account-avatar', className)}
       >
         {emoji}
-      </div>
+      </Avatar>
     )
 
   return (
-    <div className={clsx('a8-account-avatar', className)}>
-      <img src={ensAvatar} alt="avatar" />
-    </div>
+    <Avatar src={ensAvatar} className={clsx('a8-account-avatar', className)} />
   )
 }
 

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rimraf build && rimraf .turbo"
   },
   "dependencies": {
     "@ancient8/components": "workspace:*",
@@ -26,6 +27,7 @@
     "autoprefixer": "^10.4.20",
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
+    "rimraf": "^6.0.1",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.7.0",
     "vite": "^5.4.9"
