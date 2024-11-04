@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev --parallel",
+    "build": "turbo run build --filter=@aaop3734/components",
     "dev:vite": "turbo run dev --filter=vite --filter=@ancient8/components --parallel",
     "dev:react": "turbo run dev --filter=react --filter=@ancient8/components --parallel",
     "dev:next": "turbo run dev --filter=next-15 --filter=@ancient8/components --parallel",

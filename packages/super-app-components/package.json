@@ -1,12 +1,12 @@
 {
   "name": "@ancient8/components",
-  "version": "0.0.1-beta",
+  "version": "0.0.1",
   "author": "ancient8",
   "description": "Ancient8 Components",
   "license": "MIT",
   "type": "module",
   "files": [
-    "dist/**/*.{js,d.ts,css}"
+    "dist/**/*.{js,d.ts,[s]css}"
   ],
   "main": "./dist/index.js",
   "sideEffects": false,
@@ -37,7 +37,7 @@
   },
   "scripts": {
     "clean": "rimraf ./dist; rimraf ./.turbo;",
-    "build": "pnpm gen:style && pnpm build:swc && pnpm types && pnpm build:alias",
+    "build": "pnpm build:swc && pnpm build:types && pnpm build:alias",
     "prebuild": "pnpm gen:style rimraf ./dist",
     "build:swc": "swc src -d dist --copy-files --strip-leading-paths",
     "build:alias": "tsc-alias",
