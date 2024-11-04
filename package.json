@@ -3,13 +3,13 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev --parallel",
-    "build": "turbo run build --filter=@aaop3734/components",
+    "build": "turbo run build --filter=@ancient8/components",
     "dev:vite": "turbo run dev --filter=vite --filter=@ancient8/components --parallel",
     "dev:react": "turbo run dev --filter=react --filter=@ancient8/components --parallel",
     "dev:next": "turbo run dev --filter=next-15 --filter=@ancient8/components --parallel",
     "clean": "turbo run clean; rimraf .turbo",
     "version-packages": "changeset version",
-    "release": "turbo run build && pnpm publish -r"
+    "release": "pnpm build && pnpm publish -r"
   },
   "author": "Ancient8",
   "license": "MIT",
