@@ -1,0 +1,45 @@
+name: Build Test
+
+on:
+  pull_request:
+    branches: [dev, staging, main, feature/*]
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout git
+        uses: actions/checkout@v3
+
+      - name: Config Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email github-actions@github.com
+
+      - name: Local merge
+        env:
+          BASE_BRANCH: ${{ github.base_ref }}
+          FEATURE_BRANCH: ${{ github.head_ref }}
+        run: |
+          git fetch origin $FEATURE_BRANCH $BASE_BRANCH
+          git checkout $FEATURE_BRANCH
+          git checkout $BASE_BRANCH
+          git merge $FEATURE_BRANCH
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.16.0
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm i --frozen-lockfile --ignore-scripts
+
+      - name: Build
+        run: pnpm build

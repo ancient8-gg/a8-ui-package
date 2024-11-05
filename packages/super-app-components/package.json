@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "files": [
-    "dist/**/*.{js,d.ts,[s]css}"
+    "dist/**/*.{js,d.ts,[s]css,woff2,svg}"
   ],
   "main": "./dist/index.js",
   "sideEffects": false,
