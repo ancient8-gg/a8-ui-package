@@ -7,5 +7,5 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["next-15", "react", "vite"]
+  "ignore": ["*-app"]
 }
