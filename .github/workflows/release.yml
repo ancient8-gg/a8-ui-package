@@ -50,5 +50,5 @@ jobs:
           commit: 'chore: update package versions'
           title: 'chore: update package versions'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SPACE3_PAT }}
           NPM_TOKEN: ${{ secrets.ANCIENT8_NPM_TOKEN }}
