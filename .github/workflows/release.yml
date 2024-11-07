@@ -37,7 +37,7 @@ jobs:
           cache: pnpm
 
       - name: Install Dependencies
-        run: pnpm i --frozen-lockfile --ignore-scripts
+        run: pnpm i
 
       - name: Create Release PR or Publish Packages
         id: changesets
