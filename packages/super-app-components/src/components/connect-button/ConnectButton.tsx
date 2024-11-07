@@ -58,7 +58,7 @@ const InternalConnectButton = React.forwardRef<
           <Button
             {...params}
             ref={ref}
-            type="primary"
+            type="text"
             onClick={openAccountModal}
             className={clsx(
               'a8-pkg-user-nav',
