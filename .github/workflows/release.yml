@@ -48,7 +48,7 @@ jobs:
           # Alias to `changeset version` script in package.json
           version: pnpm version-packages
           commit: 'chore: update package versions'
-          title: 'chore: update package versions'
+          title: 'Publish NPM Package'
         env:
           GITHUB_TOKEN: ${{ secrets.SPACE3_PAT }}
           NPM_TOKEN: ${{ secrets.ANCIENT8_NPM_TOKEN }}
