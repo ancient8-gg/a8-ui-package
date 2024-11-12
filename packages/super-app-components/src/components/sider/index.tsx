@@ -1,7 +1,7 @@
 import { IsolateTheme } from 'base'
 import InternalSider from './Sider'
 
-import type { SiderProps, MenuStrapiType } from './types'
+import type { SiderProps, MenuStrapiType, SiderConfig } from './types'
 
 function Sider(props: SiderProps) {
   return (
@@ -11,7 +11,7 @@ function Sider(props: SiderProps) {
   )
 }
 
-export type { SiderProps, MenuStrapiType }
+export type { SiderProps, MenuStrapiType, SiderConfig }
 
 export { InternalSider }
 

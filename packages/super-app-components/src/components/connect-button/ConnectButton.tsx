@@ -1,16 +1,20 @@
 import * as React from 'react'
-import { ConnectButton as RainbowKitConnectButton } from '@rainbow-me/rainbowkit'
-import { Button, type ButtonProps } from 'antd'
 import clsx from 'clsx'
+import { ConnectButton as RainbowKitConnectButton } from '@rainbow-me/rainbowkit'
+
+import { Button, type ButtonProps, Flex, Typography, Avatar } from 'antd'
 
 import AccountAvatar from './AccountAvatar'
+
+import { shortenAddress } from 'utils'
 
 export type ConnectButtonProps = {
   isSwitchChain?: boolean
   className?: string
   classNames?: {
-    connect?: string
     account?: string
+    balance?: string
+    connect?: string
   } & ButtonProps['classNames']
 } & Omit<ButtonProps, 'classNames'>
 
@@ -55,24 +59,40 @@ const InternalConnectButton = React.forwardRef<
           )
 
         return (
-          <Button
-            {...params}
-            ref={ref}
-            type="text"
-            onClick={openAccountModal}
-            className={clsx(
-              'a8-pkg-user-nav',
-              className,
-              classNames?.account ?? '',
-            )}
-          >
-            <div>
+          <Flex gap={12}>
+            <Flex
+              className={clsx(
+                'a8-pkg-balance',
+                className,
+                classNames?.balance ?? '',
+              )}
+              align="center"
+              gap={8}
+            >
+              <Avatar size={24} src={chain.iconUrl} />
+              <Typography.Text>{account.displayBalance}</Typography.Text>
+            </Flex>
+
+            <Button
+              {...params}
+              ref={ref}
+              onClick={openAccountModal}
+              className={clsx(
+                'a8-pkg-user-nav',
+                className,
+                classNames?.account ?? '',
+              )}
+            >
+              <Typography.Text className={clsx('a8-pkg-user-nav--user-name')}>
+                {shortenAddress(account.address)}
+              </Typography.Text>
+
               <AccountAvatar
                 address={account.address}
                 ensAvatar={account.ensAvatar}
               />
-            </div>
-          </Button>
+            </Button>
+          </Flex>
         )
       }}
     </RainbowKitConnectButton.Custom>

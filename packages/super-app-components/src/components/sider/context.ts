@@ -5,7 +5,6 @@ import type { SiderConfig } from './types'
 const initialConfig: SiderConfig = {
   sider: {
     baseUrl: '',
-    accessToken: '',
   },
 }
 

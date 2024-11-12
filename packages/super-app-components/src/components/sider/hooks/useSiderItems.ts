@@ -10,7 +10,7 @@ import type { MenuStrapiResponseType } from '../types'
 
 export const useSiderItems = () => {
   const {
-    sider: { baseUrl, accessToken },
+    sider: { baseUrl },
   } = useContext(SiderConfigContext)
 
   const fetchSiderItems = useCallback(
@@ -18,9 +18,6 @@ export const useSiderItems = () => {
       const { data } = await axios.get<Promise<MenuStrapiResponseType>>(
         `${baseUrl}`,
         {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
           params: {
             pagination: {
               page,
@@ -35,7 +32,7 @@ export const useSiderItems = () => {
 
       return data
     },
-    [baseUrl, accessToken],
+    [baseUrl],
   )
 
   const { data, ...rest } = useInfiniteQuery({
@@ -53,7 +50,7 @@ export const useSiderItems = () => {
       }
     },
     getNextPageParam: (lastPage) => lastPage?.nextPage,
-    enabled: !!baseUrl && !!accessToken,
+    enabled: !!baseUrl,
   })
 
   const menuItems = useMemo(() => {

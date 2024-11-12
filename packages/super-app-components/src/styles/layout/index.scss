@@ -1,0 +1,13 @@
+.a8-pkg-layout {
+  &-content-wrapper {
+    margin-top: calc(var(--a8-header-height) + 1px);
+  }
+
+  &-sider {
+    &-container {
+      position: relative;
+      width: var(--a8-sider-colapsed-width);
+      min-height: calc(100vh - var(--a8-header-height));
+    }
+  }
+}

@@ -1,10 +1,16 @@
 import React, { type PropsWithChildren } from 'react'
 
-import { ConfigProvider, type ThemeConfig } from 'antd'
+import { ConfigProvider, type ThemeConfig, theme } from 'antd'
 
 const themeConfig: ThemeConfig = {
+  algorithm: theme.darkAlgorithm,
   token: {
     fontFamily: 'var(--a8-font-family)',
+  },
+  components: {
+    Typography: {
+      colorText: '#E1E2E5',
+    },
   },
 }
 

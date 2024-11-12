@@ -10,9 +10,21 @@
   background: var(--a8-component-background) !important;
 }
 
+.a8-pkg-menu-item {
+  line-height: 48px !important;
+
+  &-selected {
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+}
+
 .a8-pkg-menu-inline-collapsed > .a8-pkg-menu-item,
 .a8-pkg-menu-inline-collapsed
   > .a8-pkg-menu-submenu
   > .a8-pkg-menu-submenu-title {
-  padding-inline: 20px;
+  border-radius: 6px;
+  padding-inline: 8px;
+  margin-inline: 8px;
+  margin-block: 8px;
+  width: calc(100% - 16px);
 }
