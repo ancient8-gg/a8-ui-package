@@ -3,7 +3,7 @@ import { useMemo, useState, useEffect } from 'react'
 import { type MenuProps, Menu, Image, Flex } from 'antd'
 
 import { useSiderItems } from './hooks/useSiderItems'
-import { useCollapseStore } from 'components/sider/stores/collapse.store'
+import { useCollapseStore } from './stores/collapse.store'
 
 type MenuItem = Required<MenuProps>['items'][number]
 
@@ -25,11 +25,11 @@ function SiderMenu() {
       items.push({
         key: item.linkTo,
         label: item.title,
-        icon: (
+        icon: item.icon && (
           <Flex align="center">
             <Image
-              width={28}
-              height={28}
+              width={24}
+              height={24}
               src={item.icon}
               alt="icon"
               preview={false}
@@ -42,8 +42,8 @@ function SiderMenu() {
           icon: child.icon && (
             <div>
               <Image
-                width={28}
-                height={28}
+                width={24}
+                height={24}
                 src={child.icon}
                 alt="icon"
                 preview={false}

@@ -35,10 +35,10 @@ type AppPropsWithLayout = AppProps & {
 
 const queryClient = new QueryClient()
 
-const supportedChains = [sepolia, ancient8] as [
-  RainbowKitChain,
-  ...RainbowKitChain[],
-]
+const supportedChains = [
+  sepolia,
+  { ...ancient8, iconUrl: '/img/a8-token.png' },
+] as [RainbowKitChain, ...RainbowKitChain[]]
 
 const wagmiConfig = getDefaultConfig({
   appName: 'next-mf',

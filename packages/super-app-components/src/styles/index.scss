@@ -1,18 +1,19 @@
 @use './antd.min';
 @use './reset';
 
-@use './connect-button/account-avatar';
-@use './connect-button/index';
+@use './connect-button';
 
 @use './header/header';
-@use './header/search';
 
 @use './sider/sider';
 @use './sider/sider-menu';
 
+@use './layout';
+
 :root {
   /* Palette */
   --a8-primary: #ceff70;
+  --a8-primary-600: #ceff70;
   --a8-primary-950: #182102;
 
   /* Base */
@@ -25,14 +26,14 @@
   --a8-transition: all 0.2s ease-in-out;
 
   /* Components*/
-  --a8-component-background: #0a0d06;
+  --a8-component-background: rgba(9, 10, 11, 0.8);
 
   /* Header */
-  --a8-header-height: 80px;
+  --a8-header-height: 76px;
 
   /* Sider */
+  --a8-sider-colapsed-width: 56px;
   --a8-sider-expanded-width: 272px;
-  --a8-sider-colapsed-width: 110px;
 }
 
 @font-face {

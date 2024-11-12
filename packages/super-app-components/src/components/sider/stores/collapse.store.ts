@@ -4,7 +4,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 import type { SiderContextProps } from '../types'
 
 const initialStore: SiderContextProps = {
-  siderCollapsed: false,
+  siderCollapsed: true,
   setSiderCollapsed: () => {},
 }
 

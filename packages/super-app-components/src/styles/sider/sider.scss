@@ -1,3 +1,9 @@
 .a8-pkg-layout-sider {
+  position: absolute;
+  top: 0;
+  left: 0;
   background: var(--a8-component-background) !important;
+  backdrop-filter: blur(25px);
+  min-height: calc(100vh - var(--a8-header-height));
+  z-index: 1000;
 }

@@ -1,6 +1,5 @@
 export type CmsConfig = {
   baseUrl: string
-  accessToken: string
 }
 
 export type SiderConfig = {
