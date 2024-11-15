@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 0.1.1
+
+### Patch Changes
+
+- f0435f1: update antd style
+
 ## 0.1.0
 
 ### Minor Changes
