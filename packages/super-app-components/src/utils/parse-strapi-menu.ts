@@ -18,7 +18,7 @@ export function parseStrapiMenu(menu: MenuStrapiType[]): StrapiMenu[] {
       badge,
       linkTo,
       title,
-      icon: icon?.formats.thumbnail.url,
+      icon: icon?.url ?? '',
       children: children?.length ? parseStrapiMenu(children) : undefined,
     } as StrapiMenu
   })
