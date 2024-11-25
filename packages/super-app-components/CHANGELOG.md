@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 0.1.3
+
+### Patch Changes
+
+- 72c87ac: Update sider styles
+
 ## 0.1.2
 
 ### Patch Changes
