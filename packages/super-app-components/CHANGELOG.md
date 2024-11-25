@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 0.1.2
+
+### Patch Changes
+
+- f0814ba: Update sider api response
+
 ## 0.1.1
 
 ### Patch Changes
