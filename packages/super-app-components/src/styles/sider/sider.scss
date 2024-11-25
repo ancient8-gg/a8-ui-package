@@ -1,6 +1,6 @@
 .a8-pkg-layout-sider {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: var(--a8-header-height);
   left: 0;
   background: var(--a8-component-background) !important;
   backdrop-filter: blur(25px);
