@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react'
 
-import { type MenuProps, Menu, Image, Flex } from 'antd'
+import { type MenuProps, Menu, Image } from 'antd'
 
 import { useSiderItems } from './hooks/useSiderItems'
 import { useCollapseStore } from './stores/collapse.store'
@@ -26,7 +26,7 @@ function SiderMenu() {
         key: item.linkTo,
         label: item.title,
         icon: item.icon && (
-          <Flex align="center">
+          <div>
             <Image
               width={24}
               height={24}
@@ -34,7 +34,7 @@ function SiderMenu() {
               alt="icon"
               preview={false}
             />
-          </Flex>
+          </div>
         ),
         children: item.children?.map((child) => ({
           key: child.linkTo,
@@ -76,17 +76,15 @@ function SiderMenu() {
   }, [])
 
   return (
-    <div>
-      <Menu
-        theme="dark"
-        mode="inline"
-        openKeys={openKeys}
-        expandIcon={null}
-        selectedKeys={selectedKeys}
-        onSelect={({ key }) => (window.location.href = key)}
-        items={items}
-      />
-    </div>
+    <Menu
+      theme="dark"
+      mode="inline"
+      openKeys={openKeys}
+      expandIcon={null}
+      selectedKeys={selectedKeys}
+      onSelect={({ key }) => (window.location.href = key)}
+      items={items}
+    />
   )
 }
 
