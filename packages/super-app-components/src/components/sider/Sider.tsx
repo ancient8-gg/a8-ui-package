@@ -1,4 +1,7 @@
-import { Layout } from 'antd'
+import clsx from 'clsx'
+
+import { Layout, Button } from 'antd'
+import { ArrowRight2 } from 'iconsax-react'
 
 import SiderMenu from './SiderMenu'
 import { SiderConfigContext } from './context'
@@ -12,13 +15,17 @@ function Sider({ config }: SiderProps) {
 
   return (
     <SiderConfigContext.Provider value={config}>
-      <Layout.Sider
-        collapsed={siderCollapsed}
-        onMouseEnter={() => setSiderCollapsed(false)}
-        onMouseLeave={() => setSiderCollapsed(true)}
-        collapsedWidth={56}
-      >
+      <Layout.Sider collapsed={siderCollapsed} collapsedWidth={56}>
         <SiderMenu />
+        <Button
+          className={clsx(
+            'a8-pkg-sider-toggle',
+            !siderCollapsed && 'a8-pkg-sider-toggle-open',
+          )}
+          shape="circle"
+          icon={<ArrowRight2 size="14" color="#E1E2E5" />}
+          onClick={() => setSiderCollapsed(!siderCollapsed)}
+        />
       </Layout.Sider>
     </SiderConfigContext.Provider>
   )

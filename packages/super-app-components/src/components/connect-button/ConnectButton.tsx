@@ -2,7 +2,14 @@ import * as React from 'react'
 import clsx from 'clsx'
 import { ConnectButton as RainbowKitConnectButton } from '@rainbow-me/rainbowkit'
 
-import { Button, type ButtonProps, Flex, Typography, Avatar } from 'antd'
+import {
+  Button,
+  type ButtonProps,
+  Flex,
+  Typography,
+  Avatar,
+  Divider,
+} from 'antd'
 
 import AccountAvatar from './AccountAvatar'
 
@@ -59,7 +66,16 @@ const InternalConnectButton = React.forwardRef<
           )
 
         return (
-          <Flex gap={12}>
+          <Button
+            {...params}
+            ref={ref}
+            onClick={openAccountModal}
+            className={clsx(
+              'a8-pkg-user-nav',
+              className,
+              classNames?.account ?? '',
+            )}
+          >
             <Flex
               className={clsx(
                 'a8-pkg-balance',
@@ -73,26 +89,17 @@ const InternalConnectButton = React.forwardRef<
               <Typography.Text>{account.displayBalance}</Typography.Text>
             </Flex>
 
-            <Button
-              {...params}
-              ref={ref}
-              onClick={openAccountModal}
-              className={clsx(
-                'a8-pkg-user-nav',
-                className,
-                classNames?.account ?? '',
-              )}
-            >
-              <Typography.Text className={clsx('a8-pkg-user-nav--user-name')}>
-                {shortenAddress(account.address)}
-              </Typography.Text>
+            <Divider type="vertical" style={{ height: 22 }} />
 
-              <AccountAvatar
-                address={account.address}
-                ensAvatar={account.ensAvatar}
-              />
-            </Button>
-          </Flex>
+            <AccountAvatar
+              address={account.address}
+              ensAvatar={account.ensAvatar}
+            />
+
+            <Typography.Text className={clsx('a8-pkg-user-nav--user-name')}>
+              {shortenAddress(account.address)}
+            </Typography.Text>
+          </Button>
         )
       }}
     </RainbowKitConnectButton.Custom>
