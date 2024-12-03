@@ -1,9 +1,35 @@
-.a8-pkg-layout-sider {
-  position: fixed;
-  top: var(--a8-header-height);
-  left: 0;
-  background: var(--a8-component-background) !important;
-  backdrop-filter: blur(25px);
-  min-height: calc(100vh - var(--a8-header-height));
-  z-index: 1000;
+.a8-pkg {
+  &-layout-sider {
+    position: fixed;
+    top: var(--a8-header-height);
+    left: 0;
+    background: var(--a8-component-background) !important;
+    backdrop-filter: blur(25px);
+    min-height: calc(100vh - var(--a8-header-height));
+    z-index: 1000;
+
+    &-children {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-sider {
+    &-toggle {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      transform: translateX(50%);
+
+      min-width: unset !important;
+      width: 24px !important;
+      height: 24px !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+
+      &-open {
+        transform: translateX(50%) rotate(180deg);
+      }
+    }
+  }
 }
