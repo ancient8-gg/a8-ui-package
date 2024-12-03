@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 1.0.0
+
+### Major Changes
+
+- a5ad825: Update side menu ui
+
 ## 0.1.3
 
 ### Patch Changes
