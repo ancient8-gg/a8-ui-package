@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 1.1.0
+
+### Minor Changes
+
+- 933ba40: Add footer and enhance sider ux
+
 ## 1.0.0
 
 ### Major Changes
