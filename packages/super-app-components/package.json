@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@ant-design/static-style-extract": "^1.0.3",
+    "@ant-design/icons": "^5.5.2",
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.36",
     "@swc/helpers": "^0.5.13",

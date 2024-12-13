@@ -8,6 +8,8 @@ import { useCollapseStore } from './stores/collapse.store'
 type MenuItem = Required<MenuProps>['items'][number]
 
 function SiderMenu() {
+  const [isClient, setIsClient] = useState(false)
+
   const [selectedKeys, setSelectedKeys] = useState<string[]>([])
   const [openKeys, setOpenKeys] = useState<string[]>([])
   const { siderCollapsed } = useCollapseStore()
@@ -74,6 +76,12 @@ function SiderMenu() {
   useEffect(() => {
     setSelectedKeys([window.location.href])
   }, [])
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  if (!isClient) return null
 
   return (
     <Menu

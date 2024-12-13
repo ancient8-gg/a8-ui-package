@@ -1,4 +1,4 @@
-import { Layout } from '@ancient8/components'
+import { Layout, Footer } from '@ancient8/components'
 import type { PropsWithChildren, ReactNode } from 'react'
 
 function MainLayout({ children }: PropsWithChildren) {
@@ -10,7 +10,11 @@ function MainLayout({ children }: PropsWithChildren) {
         },
       }}
     >
-      {children}
+      <div className="px-6 !w-[calc(100vw_-_71px)]">
+        {children}
+        <div className="h-10"></div>
+        <Footer />
+      </div>
     </Layout>
   )
 }
