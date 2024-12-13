@@ -1,1 +1,6 @@
 export * from './Brand'
+export * from './DiscordIcon'
+export * from './LinkedinIcon'
+export * from './TelegramIcon'
+export * from './XIcon'
+export * from './YoutubeIcon'

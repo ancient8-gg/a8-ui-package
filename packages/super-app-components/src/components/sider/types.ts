@@ -42,6 +42,7 @@ export type MenuStrapiType = {
   subTitle: string | null
   title: string
   updatedAt: Date
+  order: number
 }
 
 export type MenuStrapiResponseType = {

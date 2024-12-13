@@ -40,6 +40,10 @@
   }
 }
 
+.a8-pkg-menu-inline-collapsed .a8-pkg-menu-title-content {
+  display: none !important;
+}
+
 .a8-pkg-menu-inline-collapsed > .a8-pkg-menu-item,
 .a8-pkg-menu-inline-collapsed
   > .a8-pkg-menu-submenu
