@@ -8,3 +8,5 @@ export type { SiderProps } from './sider'
 
 export { default as Layout } from './layout'
 export type { LayoutProps } from './layout'
+
+export { default as Footer } from './footer'
