@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 1.2.0
+
+### Minor Changes
+
+- 153dac8: responsive mobile and fix some ui bugs
+
 ## 1.1.0
 
 ### Minor Changes
