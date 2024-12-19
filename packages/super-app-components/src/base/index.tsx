@@ -1,1 +1,1 @@
-export { default as IsolateTheme, extractStyleConfig } from 'base/IsolateTheme'
+export { default as IsolateTheme } from './IsolateTheme'

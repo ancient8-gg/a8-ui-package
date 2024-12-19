@@ -5,6 +5,8 @@ import { type MenuProps, Menu, Image } from 'antd'
 import { useSiderItems } from './hooks/useSiderItems'
 import { useCollapseStore } from './stores/collapse.store'
 
+import { removeTrailingSlash } from 'utils/removeTrailingSlash'
+
 type MenuItem = Required<MenuProps>['items'][number]
 
 function SiderMenu() {
@@ -15,9 +17,10 @@ function SiderMenu() {
   const { siderCollapsed } = useCollapseStore()
   const { data } = useSiderItems()
 
-  const { items, hasChildren } = useMemo(() => {
+  const { items, hasChildren, keys } = useMemo(() => {
     let hasChildren: string[] = []
     let items: MenuItem[] = []
+    let keys: string[] = []
 
     data.forEach((item) => {
       if (item.children?.length) {
@@ -56,9 +59,12 @@ function SiderMenu() {
       })
     })
 
+    keys = data.map((item) => item.linkTo)
+
     return {
       items,
       hasChildren,
+      keys,
     }
   }, [data])
 
@@ -74,8 +80,26 @@ function SiderMenu() {
   }, [siderCollapsed, hasChildren])
 
   useEffect(() => {
-    setSelectedKeys([window.location.href])
-  }, [])
+    const location = window.location.href
+    const locationObj = new URL(removeTrailingSlash(location))
+
+    const selectedKeys = keys.filter((key) => {
+      const urlObj = new URL(removeTrailingSlash(key))
+
+      if (locationObj.origin !== urlObj.origin) return false
+
+      if (!locationObj.pathname.includes('/swap/pools')) {
+        return locationObj.pathname === urlObj.pathname
+      }
+
+      return (
+        locationObj.pathname.includes('/swap/pools') &&
+        urlObj.pathname.includes('/swap/pools')
+      )
+    })
+
+    setSelectedKeys(selectedKeys)
+  }, [keys])
 
   useEffect(() => {
     setIsClient(true)
@@ -90,7 +114,13 @@ function SiderMenu() {
       openKeys={openKeys}
       expandIcon={null}
       selectedKeys={selectedKeys}
-      onSelect={({ key }) => (window.location.href = key)}
+      onSelect={({ key }) => {
+        const locationObj = new URL(window.location.href)
+        const keyObj = new URL(key)
+        const target = keyObj.origin === locationObj.origin ? '_self' : '_blank'
+
+        return window.open(key, target)
+      }}
       items={items}
     />
   )
