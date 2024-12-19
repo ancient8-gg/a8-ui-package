@@ -3,11 +3,30 @@
     margin-top: calc(var(--a8-header-height) + 1px);
   }
 
+  &-content {
+    flex-grow: 1;
+  }
+
   &-sider {
     &-container {
       position: relative;
       width: var(--a8-sider-colapsed-width);
-      min-height: calc(100vh - var(--a8-header-height));
+      min-height: calc(100vh - var(--a8-header-height) - 1px);
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .a8-pkg-layout {
+    &-content {
+      flex-grow: 1;
+    }
+
+    &-sider {
+      &-container {
+        position: relative;
+        width: 0;
+      }
     }
   }
 }

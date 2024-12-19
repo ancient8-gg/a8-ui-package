@@ -7,15 +7,20 @@ import SiderMenu from './SiderMenu'
 import { SiderConfigContext } from './context'
 
 import { useCollapseStore } from './stores/collapse.store'
+import useIsMobile from 'hooks/useIsMobile'
 
 import type { SiderProps } from './types'
 
 function Sider({ config }: SiderProps) {
   const { siderCollapsed, setSiderCollapsed } = useCollapseStore()
+  const isMobile = useIsMobile()
 
   return (
     <SiderConfigContext.Provider value={config}>
-      <Layout.Sider collapsed={siderCollapsed} collapsedWidth={56}>
+      <Layout.Sider
+        collapsed={siderCollapsed}
+        collapsedWidth={isMobile ? 0 : 56}
+      >
         <SiderMenu />
         <Button
           className={clsx(

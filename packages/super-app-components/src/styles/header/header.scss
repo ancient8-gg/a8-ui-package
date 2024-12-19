@@ -2,8 +2,7 @@
   &-wrapper {
     width: 100%;
 
-    border-bottom: 0.6px solid
-      var(--transparent-white-8, rgba(255, 255, 255, 0.08));
+    border-bottom: 0.6px solid rgba(255, 255, 255, 0.08);
     background: var(--a8-component-background);
     backdrop-filter: blur(35px);
 
@@ -25,10 +24,23 @@
   }
 
   &-brand {
-    cursor: pointer;
-
-    svg {
+    .brand {
+      cursor: pointer;
       width: 124px;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .a8-pkg-header {
+    &--sider-toggle {
+      cursor: pointer;
+    }
+
+    &-brand {
+      .brand {
+        width: 82px;
+      }
     }
   }
 }

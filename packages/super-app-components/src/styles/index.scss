@@ -39,6 +39,13 @@
   --a8-sider-menu-active-color: #d8ff76;
 }
 
+@media screen and (max-width: 991px) {
+  :root {
+    /* Header */
+    --a8-header-height: 56px;
+  }
+}
+
 @font-face {
   font-family: 'Bw Gradual';
   src: url('../assets/fonts/BwGradual-Black.woff2');

@@ -27,17 +27,4 @@ function IsolateTheme({ children }: PropsWithChildren) {
   )
 }
 
-export const extractStyleConfig = (node: React.JSX.Element) => {
-  return (
-    <ConfigProvider
-      theme={themeConfig}
-      prefixCls="a8-pkg"
-      iconPrefixCls="a8-pkg-icon"
-      wave={{ disabled: true }}
-    >
-      {node}
-    </ConfigProvider>
-  )
-}
-
 export default IsolateTheme
