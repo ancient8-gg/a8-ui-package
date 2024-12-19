@@ -37,3 +37,9 @@
     border: 1px solid var(--a8-primary) !important;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .a8-pkg-connect-btn {
+    height: 36px;
+  }
+}

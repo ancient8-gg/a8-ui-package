@@ -10,7 +10,7 @@ function MainLayout({ children }: PropsWithChildren) {
         },
       }}
     >
-      <div className="px-6 !w-[calc(100vw_-_71px)]">
+      <div className="px-6 mobile:px-4">
         {children}
         <div className="h-10"></div>
         <Footer />

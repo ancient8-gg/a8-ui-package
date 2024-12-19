@@ -1,7 +1,7 @@
 import { IsolateTheme } from 'base'
 import InternalLayout from './Layout'
 
-import type { LayoutProps } from 'components/layout/types'
+import type { LayoutProps } from './types'
 
 function Layout(props: LayoutProps) {
   return (

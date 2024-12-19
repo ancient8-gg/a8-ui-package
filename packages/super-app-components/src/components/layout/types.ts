@@ -5,4 +5,7 @@ export type LayoutConfig = SiderConfig
 
 export type LayoutProps = PropsWithChildren<{
   config: LayoutConfig
+  classNames?: {
+    content?: string
+  }
 }>

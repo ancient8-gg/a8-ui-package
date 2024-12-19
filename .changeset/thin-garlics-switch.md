@@ -2,4 +2,4 @@
 '@ancient8/components': minor
 ---
 
-Add footer and enhance sider ux
+responsive mobile and fix some ui bugs
