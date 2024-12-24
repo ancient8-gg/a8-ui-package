@@ -7,9 +7,10 @@ import { emojiAvatarForAddress } from 'utils/emoji-avatar'
 type AccountAvatarProps = {
   address?: string
   ensAvatar?: string
+  size?: number
 }
 
-function AccountAvatar({ address, ensAvatar }: AccountAvatarProps) {
+function AccountAvatar({ address, ensAvatar, size = 24 }: AccountAvatarProps) {
   const { color: backgroundColor, emoji } = useMemo(
     () => emojiAvatarForAddress(address ?? ''),
     [address],
@@ -18,15 +19,17 @@ function AccountAvatar({ address, ensAvatar }: AccountAvatarProps) {
   if (!ensAvatar)
     return (
       <Avatar
-        style={{ backgroundColor }}
-        size={24}
+        style={{ backgroundColor, fontSize: (size * 2) / 3 }}
+        size={size}
         className="a8-pkg-account-avatar"
       >
         {emoji}
       </Avatar>
     )
 
-  return <Avatar size={24} src={ensAvatar} className="a8-pkg-account-avatar" />
+  return (
+    <Avatar size={size} src={ensAvatar} className="a8-pkg-account-avatar" />
+  )
 }
 
 export default AccountAvatar

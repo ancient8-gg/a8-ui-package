@@ -10,10 +10,10 @@ import type { LayoutProps } from './types'
 function Layout({ config, children, classNames }: LayoutProps) {
   return (
     <AntdLayout hasSider={false}>
-      <InternalHeader />
+      <InternalHeader config={{ header: config.header }} />
       <Flex className="a8-pkg-layout-content-wrapper">
         <div className="a8-pkg-layout-sider-container">
-          <InternalSider config={config} />
+          <InternalSider config={{ sider: config.sider }} />
         </div>
         <div className={clsx('a8-pkg-layout-content', classNames?.content)}>
           {children}

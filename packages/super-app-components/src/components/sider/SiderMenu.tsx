@@ -1,4 +1,5 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, useCallback } from 'react'
+import clsx from 'clsx'
 
 import { type MenuProps, Menu, Image } from 'antd'
 
@@ -11,35 +12,71 @@ type MenuItem = Required<MenuProps>['items'][number]
 
 function SiderMenu() {
   const [isClient, setIsClient] = useState(false)
-
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([])
   const [openKeys, setOpenKeys] = useState<string[]>([])
-  const { siderCollapsed } = useCollapseStore()
+  const { siderCollapsed, setSiderCollapsed } = useCollapseStore()
   const { data } = useSiderItems()
 
-  const { items, hasChildren, keys } = useMemo(() => {
+  const isMenuSelected = useCallback((url: string) => {
+    const location = window.location.href
+    const locationObj = new URL(removeTrailingSlash(location))
+    const urlObj = new URL(removeTrailingSlash(url))
+
+    if (locationObj.origin !== urlObj.origin) return false
+
+    // Home
+    if (locationObj.pathname === '/' && urlObj.pathname === '/') return true
+
+    if (locationObj.pathname.length < urlObj.pathname.length) return false
+
+    const locationPath = locationObj.pathname.split('/')
+    const urlPath = urlObj.pathname.split('/')
+
+    if (locationPath[1] === 'swap') {
+      if (locationObj.pathname === '/swap' && urlObj.pathname === '/swap')
+        return true
+
+      return locationPath[2] === 'pools' && urlPath[2] === 'pools'
+    }
+
+    return locationPath[1] === urlPath[1]
+  }, [])
+
+  const { items, hasChildren } = useMemo(() => {
     let hasChildren: string[] = []
     let items: MenuItem[] = []
-    let keys: string[] = []
 
     data.forEach((item) => {
       if (item.children?.length) {
         hasChildren.push(item.linkTo)
       }
 
+      const locationObj = new URL(window.location.href)
+      const urlObj = new URL(item.linkTo)
+      const target = urlObj.origin === locationObj.origin ? '_self' : '_blank'
+
       items.push({
         key: item.linkTo,
-        label: item.title,
+        label: (
+          <a href={item.linkTo} target={target}>
+            {item.title}
+          </a>
+        ),
         icon: item.icon && (
-          <div>
-            <Image
-              width={24}
-              height={24}
-              src={item.icon}
-              alt="icon"
-              preview={false}
-            />
-          </div>
+          <a href={item.linkTo} target={target}>
+            <div>
+              <Image
+                width={24}
+                height={24}
+                src={item.icon}
+                alt="icon"
+                preview={false}
+              />
+            </div>
+          </a>
+        ),
+        onClick: () => setSiderCollapsed(true),
+        className: clsx(
+          isMenuSelected(item.linkTo) && 'a8-pkg-menu-item-selected',
         ),
         children: item.children?.map((child) => ({
           key: child.linkTo,
@@ -59,12 +96,9 @@ function SiderMenu() {
       })
     })
 
-    keys = data.map((item) => item.linkTo)
-
     return {
       items,
       hasChildren,
-      keys,
     }
   }, [data])
 
@@ -80,28 +114,6 @@ function SiderMenu() {
   }, [siderCollapsed, hasChildren])
 
   useEffect(() => {
-    const location = window.location.href
-    const locationObj = new URL(removeTrailingSlash(location))
-
-    const selectedKeys = keys.filter((key) => {
-      const urlObj = new URL(removeTrailingSlash(key))
-
-      if (locationObj.origin !== urlObj.origin) return false
-
-      if (!locationObj.pathname.includes('/swap/pools')) {
-        return locationObj.pathname === urlObj.pathname
-      }
-
-      return (
-        locationObj.pathname.includes('/swap/pools') &&
-        urlObj.pathname.includes('/swap/pools')
-      )
-    })
-
-    setSelectedKeys(selectedKeys)
-  }, [keys])
-
-  useEffect(() => {
     setIsClient(true)
   }, [])
 
@@ -113,14 +125,7 @@ function SiderMenu() {
       mode="inline"
       openKeys={openKeys}
       expandIcon={null}
-      selectedKeys={selectedKeys}
-      onSelect={({ key }) => {
-        const locationObj = new URL(window.location.href)
-        const keyObj = new URL(key)
-        const target = keyObj.origin === locationObj.origin ? '_self' : '_blank'
-
-        return window.open(key, target)
-      }}
+      selectable={false}
       items={items}
     />
   )

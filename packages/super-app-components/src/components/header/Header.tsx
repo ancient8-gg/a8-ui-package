@@ -1,11 +1,14 @@
 import { Flex } from 'antd'
 import { Menu as MenuIcon, CloseCircle as CloseIcon } from 'iconsax-react'
 
-import { InternalConnectButton } from '../connect-button'
+import UserNavMenu from 'components/header/UserNavMenu'
 import { Brand } from 'assets/icons'
 
 import useIsMobile from 'hooks/useIsMobile'
 import { useCollapseStore } from 'components/sider/stores/collapse.store'
+import { HeaderConfigContext } from './context'
+
+import type { HeaderProps } from './types'
 
 function MobileSiderToggle() {
   const isMobile = useIsMobile()
@@ -17,6 +20,7 @@ function MobileSiderToggle() {
     return (
       <MenuIcon
         size="24"
+        color="#E1E2E5"
         variant="Bold"
         onClick={() => setSiderCollapsed(false)}
       />
@@ -32,23 +36,27 @@ function MobileSiderToggle() {
   )
 }
 
-function Header() {
+function Header({ config }: HeaderProps) {
   return (
-    <div className="a8-pkg-header-wrapper">
-      <div className="a8-pkg-header-container">
-        <div className="a8-pkg-header-brand">
-          <Flex gap={16} align="center">
-            <div className="a8-pkg-header--sider-toggle">
-              <MobileSiderToggle />
-            </div>
+    <HeaderConfigContext.Provider value={config}>
+      <div className="a8-pkg-header-wrapper">
+        <div className="a8-pkg-header-container">
+          <div className="a8-pkg-header-brand">
+            <Flex gap={16} align="center">
+              <div className="a8-pkg-header--sider-toggle">
+                <MobileSiderToggle />
+              </div>
 
-            <Brand />
-          </Flex>
+              <a href="/">
+                <Brand />
+              </a>
+            </Flex>
+          </div>
+
+          <UserNavMenu />
         </div>
-
-        <InternalConnectButton />
       </div>
-    </div>
+    </HeaderConfigContext.Provider>
   )
 }
 

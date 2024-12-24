@@ -18,7 +18,9 @@ function Footer() {
     >
       <Flex vertical gap={!isMobile ? 40 : 20}>
         <Flex vertical gap={20}>
-          <Brand />
+          <a href="/">
+            <Brand />
+          </a>
 
           <Typography.Text className="a8-pkg-footer--sub-brand">
             On The Edge Of Gaming
