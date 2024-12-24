@@ -8,6 +8,10 @@ function MainLayout({ children }: PropsWithChildren) {
         sider: {
           baseUrl: 'https://cms-dev.ancient8.gg/api/side-menus',
         },
+        header: {
+          baseUrl: 'http://localhost:1337/api/user-nav-menus',
+          startsA8Proxy: 'https://app-dev.ancient8.gg',
+        },
       }}
     >
       <div className="px-6 mobile:px-4">

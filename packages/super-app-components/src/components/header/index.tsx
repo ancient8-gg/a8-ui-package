@@ -1,13 +1,17 @@
 import { IsolateTheme } from 'base'
 import InternalHeader from './Header'
 
-function Header() {
+import type { HeaderProps, HeaderConfig } from './types'
+
+function Header(props: HeaderProps) {
   return (
     <IsolateTheme>
-      <InternalHeader />
+      <InternalHeader {...props} />
     </IsolateTheme>
   )
 }
+
+export type { HeaderProps, HeaderConfig }
 
 export { InternalHeader }
 

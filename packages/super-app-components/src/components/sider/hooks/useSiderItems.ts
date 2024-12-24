@@ -3,10 +3,9 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 import { SiderConfigContext } from '../context'
+import { parseSiderStrapiMenu } from '../utils'
 
-import { parseStrapiMenu, type StrapiMenu } from 'utils/parse-strapi-menu'
-
-import type { MenuStrapiResponseType } from '../types'
+import type { SiderStrapiResType, SiderMenuType } from '../types'
 
 const QUERY_KEY = 'sider-items'
 
@@ -17,7 +16,7 @@ export const useSiderItems = () => {
 
   const fetchSiderItems = useCallback(
     async (page = 1) => {
-      const { data } = await axios.get<Promise<MenuStrapiResponseType>>(
+      const { data } = await axios.get<Promise<SiderStrapiResType>>(
         `${baseUrl}`,
         {
           params: {
@@ -28,6 +27,7 @@ export const useSiderItems = () => {
             'populate[0]': 'children',
             'populate[1]': 'icon',
             'filters[parent][$null]': true,
+            'sort[0]': 'order:asc',
           },
         },
       )
@@ -93,13 +93,13 @@ export const useSiderItems = () => {
   //   ...rest,
   // }
 
-  return useQuery<StrapiMenu[]>({
+  return useQuery<SiderMenuType[]>({
     queryKey: [QUERY_KEY],
     initialData: initialDataLocal,
     queryFn: async () => {
       const res = await fetchSiderItems()
 
-      const data = parseStrapiMenu(res.data ?? [])
+      const data = parseSiderStrapiMenu(res.data ?? [])
       localStorage.setItem(QUERY_KEY, JSON.stringify(data))
 
       return data
