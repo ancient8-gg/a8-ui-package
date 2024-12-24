@@ -4,7 +4,8 @@
   }
 
   &-content {
-    flex-grow: 1;
+    min-width: 1px;
+    flex: 1;
   }
 
   &-sider {
@@ -18,10 +19,6 @@
 
 @media screen and (max-width: 991px) {
   .a8-pkg-layout {
-    &-content {
-      flex-grow: 1;
-    }
-
     &-sider {
       &-container {
         position: relative;

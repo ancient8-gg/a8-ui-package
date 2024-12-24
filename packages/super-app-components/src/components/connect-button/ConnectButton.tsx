@@ -13,6 +13,8 @@ import {
 
 import AccountAvatar from './AccountAvatar'
 
+import useIsMobile from 'hooks/useIsMobile'
+
 import { shortenAddress } from 'utils'
 
 export type ConnectButtonProps = {
@@ -22,6 +24,7 @@ export type ConnectButtonProps = {
     account?: string
     balance?: string
     connect?: string
+    switch?: string
   } & ButtonProps['classNames']
 } & Omit<ButtonProps, 'classNames'>
 
@@ -30,15 +33,16 @@ const InternalConnectButton = React.forwardRef<
   ConnectButtonProps
 >((props, ref) => {
   const { isSwitchChain, className, classNames, ...params } = props
+  const isMobile = useIsMobile()
 
   return (
     <RainbowKitConnectButton.Custom>
       {({
         account,
         chain,
-        openAccountModal,
         openConnectModal,
         authenticationStatus,
+        openChainModal,
         mounted,
       }) => {
         const ready = mounted && authenticationStatus !== 'loading'
@@ -65,40 +69,62 @@ const InternalConnectButton = React.forwardRef<
             </Button>
           )
 
+        if (chain?.unsupported)
+          return (
+            <Button
+              {...params}
+              ref={ref}
+              type="primary"
+              onClick={openChainModal}
+              className={clsx(
+                'a8-pkg-connect-btn',
+                className,
+                classNames?.switch ?? '',
+              )}
+            >
+              Switch network
+            </Button>
+          )
+
         return (
           <Button
             {...params}
             ref={ref}
-            onClick={openAccountModal}
             className={clsx(
               'a8-pkg-user-nav',
               className,
               classNames?.account ?? '',
             )}
           >
-            <Flex
-              className={clsx(
-                'a8-pkg-balance',
-                className,
-                classNames?.balance ?? '',
-              )}
-              align="center"
-              gap={8}
-            >
-              <Avatar size={24} src={chain.iconUrl} />
-              <Typography.Text>{account.displayBalance}</Typography.Text>
-            </Flex>
+            {!isMobile && (
+              <React.Fragment>
+                <Flex
+                  className={clsx(
+                    'a8-pkg-balance',
+                    className,
+                    classNames?.balance ?? '',
+                  )}
+                  align="center"
+                  gap={8}
+                >
+                  <Avatar size={24} src={chain.iconUrl} />
+                  <Typography.Text>{account.displayBalance}</Typography.Text>
+                </Flex>
 
-            <Divider type="vertical" style={{ height: 22 }} />
+                <Divider type="vertical" style={{ height: 22 }} />
+              </React.Fragment>
+            )}
 
             <AccountAvatar
               address={account.address}
               ensAvatar={account.ensAvatar}
             />
 
-            <Typography.Text className={clsx('a8-pkg-user-nav--user-name')}>
-              {shortenAddress(account.address)}
-            </Typography.Text>
+            {!isMobile && (
+              <Typography.Text className={clsx('a8-pkg-user-nav--user-name')}>
+                {shortenAddress(account.address)}
+              </Typography.Text>
+            )}
           </Button>
         )
       }}

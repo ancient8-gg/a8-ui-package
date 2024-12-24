@@ -1,14 +1,8 @@
 @use './reset';
-
 @use './connect-button';
-
-@use './header/header';
-
-@use './sider/sider';
-@use './sider/sider-menu';
-
+@use './header';
+@use './sider';
 @use './layout';
-
 @use './footer';
 
 :root {

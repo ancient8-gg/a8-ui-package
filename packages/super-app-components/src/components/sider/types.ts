@@ -1,6 +1,4 @@
-export type CmsConfig = {
-  baseUrl: string
-}
+import type { CmsConfig, StrapiResponse } from 'types/cms.type'
 
 export type SiderConfig = {
   sider: CmsConfig
@@ -10,7 +8,7 @@ export type SiderProps = {
   config: SiderConfig
 }
 
-export type MenuStrapiType = {
+export type SiderStrapiType = {
   badge: string | null
   createdAt: Date
   documentId: string
@@ -35,7 +33,7 @@ export type MenuStrapiType = {
     updatedAt: Date
     publishedAt: Date
   } | null
-  children: MenuStrapiType[]
+  children: SiderStrapiType[]
   id: number
   linkTo: string
   publishedAt: Date
@@ -45,16 +43,16 @@ export type MenuStrapiType = {
   order: number
 }
 
-export type MenuStrapiResponseType = {
-  data: MenuStrapiType[]
-  meta: {
-    pagination: {
-      page: number
-      pageSize: number
-      pageCount: number
-      total: number
-    }
-  }
+export type SiderStrapiResType = StrapiResponse<SiderStrapiType>
+
+export type SiderMenuType = {
+  id: number
+  badge: string | null
+  linkTo: string
+  title: string
+  icon: string
+  children?: SiderMenuType[]
+  order: number
 }
 
 export type SiderContextProps = {
