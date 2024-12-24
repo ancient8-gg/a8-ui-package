@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 1.3.0
+
+### Minor Changes
+
+- 21128ea: Add user nav in header and enhance some ui case
+
 ## 1.2.0
 
 ### Minor Changes
