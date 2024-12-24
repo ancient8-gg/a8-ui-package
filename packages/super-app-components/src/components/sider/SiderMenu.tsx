@@ -13,7 +13,7 @@ type MenuItem = Required<MenuProps>['items'][number]
 function SiderMenu() {
   const [isClient, setIsClient] = useState(false)
   const [openKeys, setOpenKeys] = useState<string[]>([])
-  const { siderCollapsed } = useCollapseStore()
+  const { siderCollapsed, setSiderCollapsed } = useCollapseStore()
   const { data } = useSiderItems()
 
   const isMenuSelected = useCallback((url: string) => {
@@ -62,16 +62,19 @@ function SiderMenu() {
           </a>
         ),
         icon: item.icon && (
-          <div>
-            <Image
-              width={24}
-              height={24}
-              src={item.icon}
-              alt="icon"
-              preview={false}
-            />
-          </div>
+          <a href={item.linkTo} target={target}>
+            <div>
+              <Image
+                width={24}
+                height={24}
+                src={item.icon}
+                alt="icon"
+                preview={false}
+              />
+            </div>
+          </a>
         ),
+        onClick: () => setSiderCollapsed(true),
         className: clsx(
           isMenuSelected(item.linkTo) && 'a8-pkg-menu-item-selected',
         ),
