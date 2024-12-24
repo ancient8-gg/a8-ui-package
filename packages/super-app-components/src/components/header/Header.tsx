@@ -47,7 +47,9 @@ function Header({ config }: HeaderProps) {
                 <MobileSiderToggle />
               </div>
 
-              <Brand />
+              <a href="/">
+                <Brand />
+              </a>
             </Flex>
           </div>
 
