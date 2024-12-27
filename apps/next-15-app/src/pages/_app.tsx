@@ -18,7 +18,7 @@ import {
   okxWallet,
 } from '@rainbow-me/rainbowkit/wallets'
 import * as allWallets from '@rainbow-me/rainbowkit/wallets'
-import { sepolia, ancient8Sepolia } from 'viem/chains'
+import { sepolia, ancient8Sepolia, mainnet, ancient8 } from 'viem/chains'
 
 import '@rainbow-me/rainbowkit/styles.css'
 import '@ancient8/components/styles.scss'
@@ -36,8 +36,10 @@ type AppPropsWithLayout = AppProps & {
 const queryClient = new QueryClient()
 
 const supportedChains = [
+  mainnet,
   sepolia,
-  { ...ancient8Sepolia, iconUrl: '/img/a8-token.png' },
+  { ...ancient8, iconUrl: '/img/a8-logo-chain.png' },
+  { ...ancient8Sepolia, iconUrl: '/img/a8-logo-chain.png' },
 ] as [RainbowKitChain, ...RainbowKitChain[]]
 
 const wagmiConfig = getDefaultConfig({
