@@ -6,3 +6,9 @@ export function shortenAddress(address?: string, num = 4) {
     address.substring(address.length - num, address.length)
   )
 }
+
+export function formatNumber(value: number, maximumFractionDigits = 3) {
+  return value.toLocaleString('en-US', {
+    maximumFractionDigits,
+  })
+}

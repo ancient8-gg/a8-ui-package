@@ -1,5 +1,7 @@
-import { Layout, Footer } from '@ancient8/components'
 import type { PropsWithChildren, ReactNode } from 'react'
+
+import { ConfigProvider } from 'antd'
+import { Layout, Footer } from '@ancient8/components'
 
 function MainLayout({ children }: PropsWithChildren) {
   return (
@@ -9,16 +11,31 @@ function MainLayout({ children }: PropsWithChildren) {
           baseUrl: 'https://cms-dev.ancient8.gg/api/side-menus',
         },
         header: {
-          baseUrl: 'http://localhost:1337/api/user-nav-menus',
+          baseUrl: 'https://cms-dev.ancient8.gg/api/user-nav-menus',
           startsA8Proxy: 'https://app-dev.ancient8.gg',
         },
       }}
     >
-      <div className="px-6 mobile:px-4">
-        {children}
-        <div className="h-10"></div>
-        <Footer />
-      </div>
+      <ConfigProvider
+        theme={{
+          token: {
+            fontSize: 16,
+            colorPrimary: '#D8FF76',
+            lineHeight: 1,
+          },
+          components: {
+            Button: {
+              colorPrimary: '#D8FF76',
+            },
+          },
+        }}
+      >
+        <div className="px-6 mobile:px-4">
+          {children}
+          <div className="h-10"></div>
+          <Footer />
+        </div>
+      </ConfigProvider>
     </Layout>
   )
 }
