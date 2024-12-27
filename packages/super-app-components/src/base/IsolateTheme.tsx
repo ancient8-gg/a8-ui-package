@@ -5,6 +5,7 @@ import { ConfigProvider, type ThemeConfig, theme } from 'antd'
 const themeConfig: ThemeConfig = {
   algorithm: theme.darkAlgorithm,
   token: {
+    fontSize: 14,
     fontFamily: 'var(--a8-font-family)',
   },
   components: {

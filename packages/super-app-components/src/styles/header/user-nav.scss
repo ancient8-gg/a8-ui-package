@@ -73,6 +73,10 @@
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.12);
       width: fit-content;
+      cursor: pointer;
+      display: flex;
+      gap: 8px;
+      align-items: center;
     }
 
     &--balance {
