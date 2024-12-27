@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.0.0
+
+### Major Changes
+
+- c3ebb28: Add a8 token to user nav and enhance some ui case
+
 ## 1.3.0
 
 ### Minor Changes
