@@ -47,13 +47,14 @@ function Footer() {
             >
               NFT Marketplace
             </Typography.Link>
-            <Typography.Link
+            {/* TODO: Temporarily hidden due to no page */}
+            {/* <Typography.Link
               href="/gamesandprotocols"
               target="_blank"
               className="a8-pkg-footer--menu-content"
             >
               Games/Protocols
-            </Typography.Link>
+            </Typography.Link> */}
             <Typography.Link
               href="/swap"
               target="_blank"
@@ -69,7 +70,7 @@ function Footer() {
               Bridge
             </Typography.Link>
             <Typography.Link
-              href="/staking"
+              href="https://staking.ancient8.gg/"
               target="_blank"
               className="a8-pkg-footer--menu-content"
             >
