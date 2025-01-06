@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.0.1
+
+### Patch Changes
+
+- 199491f: update staking url
+
 ## 2.0.0
 
 ### Major Changes
