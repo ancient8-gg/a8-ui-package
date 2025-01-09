@@ -139,13 +139,6 @@ function UserNavMenu() {
 
                 <Flex vertical className="a8-pkg-user-nav-account" gap={12}>
                   <Typography.Text
-                    // copyable={{
-                    //   text: address,
-                    //   icon: [
-                    //     <Icon component={CopyIcon} key="Copy" />,
-                    //     <Icon component={CopiedIcon} key="Copied" />,
-                    //   ],
-                    // }}
                     className="a8-pkg-user-nav-account--address"
                     onClick={() => {
                       setIsCopiedAddress(true)
