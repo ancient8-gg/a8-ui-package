@@ -70,7 +70,7 @@ function Footer() {
               Bridge
             </Typography.Link>
             <Typography.Link
-              href="https://staking.ancient8.gg/"
+              href="/staking"
               target="_blank"
               className="a8-pkg-footer--menu-content"
             >

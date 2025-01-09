@@ -6,7 +6,7 @@ export const EthToken = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#clip0_1554_3686)">
+    <g clipPath="url(#clip0_1554_3686)">
       <path
         d="M20.5 40C31.5457 40 40.5 31.0457 40.5 20C40.5 8.9543 31.5457 0 20.5 0C9.4543 0 0.5 8.9543 0.5 20C0.5 31.0457 9.4543 40 20.5 40Z"
         fill="#627EEA"

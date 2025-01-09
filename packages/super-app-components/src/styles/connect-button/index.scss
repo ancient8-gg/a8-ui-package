@@ -23,6 +23,10 @@
   background: transparent !important;
   border-radius: 8px;
   padding: 0 16px;
+
+  & > span {
+    display: flex;
+  }
 }
 
 .a8-pkg-user-nav {
