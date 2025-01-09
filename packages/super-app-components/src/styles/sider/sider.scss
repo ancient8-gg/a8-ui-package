@@ -3,6 +3,7 @@
     position: fixed;
     top: var(--a8-header-height);
     left: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
     background: var(--a8-component-background) !important;
     backdrop-filter: blur(25px);
     min-height: calc(100vh - var(--a8-header-height));
