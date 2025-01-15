@@ -36,8 +36,8 @@ type AppPropsWithLayout = AppProps & {
 const queryClient = new QueryClient()
 
 const supportedChains = [
-  mainnet,
-  sepolia,
+  { ...mainnet, iconUrl: '/img/eth-logo-chain.png' },
+  { ...sepolia, iconUrl: '/img/eth-logo-chain.png' },
   { ...ancient8, iconUrl: '/img/a8-logo-chain.png' },
   { ...ancient8Sepolia, iconUrl: '/img/a8-logo-chain.png' },
 ] as [RainbowKitChain, ...RainbowKitChain[]]

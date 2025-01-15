@@ -17,21 +17,18 @@
   }
 }
 
-.a8-pkg-user-nav {
+.a8-pkg-user-nav-btn {
   height: 48px;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   background: transparent !important;
   border-radius: 8px;
   padding: 0 16px;
+  color: var(--a8-primary);
+  box-shadow: unset !important;
 
   & > span {
     display: flex;
   }
-}
-
-.a8-pkg-user-nav {
-  color: var(--a8-primary);
-  box-shadow: unset !important;
 
   &--user-name {
     color: var(--a8-neutral-50);
@@ -47,7 +44,7 @@
     height: 36px;
   }
 
-  .a8-pkg-user-nav {
+  .a8-pkg-user-nav-btn {
     width: 36px;
     height: 36px;
     padding: 0;
