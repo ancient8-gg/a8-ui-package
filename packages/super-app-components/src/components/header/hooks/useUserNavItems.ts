@@ -34,10 +34,8 @@ export const useUserNavItems = () => {
     [baseUrl],
   )
 
-  if (window === undefined || typeof window === 'undefined')
-    return {
-      data: [],
-    }
+  // @ts-ignore
+  if (!process.browser) return { data: [] }
 
   const initialDataLocal = JSON.parse(localStorage.getItem(QUERY_KEY) ?? '[]')
 
