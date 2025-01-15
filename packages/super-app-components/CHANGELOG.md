@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.0.2
+
+### Patch Changes
+
+- 8f9618e: Enhance minor styles for sider
+
 ## 2.0.1
 
 ### Patch Changes

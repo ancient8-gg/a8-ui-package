@@ -91,7 +91,7 @@ const InternalConnectButton = React.forwardRef<
             {...params}
             ref={ref}
             className={clsx(
-              'a8-pkg-user-nav',
+              'a8-pkg-user-nav-btn',
               className,
               classNames?.account ?? '',
             )}
@@ -121,7 +121,9 @@ const InternalConnectButton = React.forwardRef<
             />
 
             {!isMobile && (
-              <Typography.Text className={clsx('a8-pkg-user-nav--user-name')}>
+              <Typography.Text
+                className={clsx('a8-pkg-user-nav-btn--user-name')}
+              >
                 {shortenAddress(account.address)}
               </Typography.Text>
             )}

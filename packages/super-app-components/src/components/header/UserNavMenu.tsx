@@ -17,8 +17,10 @@ import {
   InternalConnectButton,
   InternalAccountAvatar,
 } from 'components/connect-button'
+import SwitchChain from './SwitchChain'
 
 import { useUserNavItems } from './hooks/useUserNavItems'
+import { useA8TokenBalance } from './hooks/useA8TokenBalance'
 import { useUsdPrice } from 'hooks/useUsdPrice'
 import useIsMobile from 'hooks/useIsMobile'
 
@@ -34,7 +36,6 @@ import {
   UserNavHr,
 } from 'assets/icons'
 import { A8Token, EthToken } from 'assets/logo'
-import { useA8TokenBalance } from 'components/header/hooks/useA8TokenBalance'
 
 function UserNavMenu() {
   const { connector, address, isConnected, chain } = useAccount()
@@ -91,131 +92,140 @@ function UserNavMenu() {
 
   return (
     <RainbowKitConnectButton.Custom>
-      {({ account }) => (
-        <Dropdown
-          open={!isConnected ? false : isMobile ? open : undefined}
-          menu={{ items }}
-          trigger={['click']}
-          dropdownRender={(menu) => {
-            return (
-              <Flex
-                vertical
-                align="center"
-                className="a8-pkg-user-nav-container"
-                gap={24}
-              >
-                {isMobile && (
-                  <CloseIcon
-                    size="24"
-                    color="#A3A5AE"
-                    variant="Bold"
-                    onClick={() => setOpen(false)}
-                    className="a8-pkg-user-nav-close-icon"
-                  />
-                )}
+      {({ account, chain }) => (
+        <Flex gap={12}>
+          <SwitchChain currentChainId={chain?.id} />
 
-                <Flex
-                  align="center"
-                  justify="center"
-                  className="a8-pkg-user-nav-avatar"
-                >
-                  <InternalAccountAvatar address={address} size={100} />
-                  <AvatarBorder />
-                  <AvatarBorderDeco />
-                </Flex>
-
+          <Dropdown
+            open={!isConnected ? false : isMobile ? open : undefined}
+            menu={{ items }}
+            trigger={['click']}
+            dropdownRender={(menu) => {
+              return (
                 <Flex
                   vertical
                   align="center"
-                  className="a8-pkg-user-nav-title"
-                  gap={12}
+                  className="a8-pkg-user-nav-container"
+                  gap={24}
                 >
-                  <UserNavHr />
-                  <Typography.Text className="a8-pkg-user-nav-title-text">
-                    ECOSYSTEM CITIZEN
-                  </Typography.Text>
-                  <UserNavHr className="rotate-180" />
-                </Flex>
-
-                <Flex vertical className="a8-pkg-user-nav-account" gap={12}>
-                  <Typography.Text
-                    className="a8-pkg-user-nav-account--address"
-                    onClick={() => {
-                      setIsCopiedAddress(true)
-                      copy(address ?? '')
-                      setTimeout(() => {
-                        setIsCopiedAddress(false)
-                      }, 3000)
-                    }}
-                  >
-                    {shortenAddress(address)}
-                    {!isCopiedAddress ? (
-                      <Tooltip
-                        title="Copy"
-                        trigger={['hover']}
-                        open={isCopiedAddress ? true : undefined}
-                      >
-                        <Icon component={CopyIcon} key="Copy" />
-                      </Tooltip>
-                    ) : (
-                      <Tooltip
-                        title="Copied"
-                        open={isCopiedAddress ? true : undefined}
-                      >
-                        <Icon component={CopiedIcon} key="Copied" />
-                      </Tooltip>
-                    )}
-                  </Typography.Text>
+                  {isMobile && (
+                    <CloseIcon
+                      size="24"
+                      color="#A3A5AE"
+                      variant="Bold"
+                      onClick={() => setOpen(false)}
+                      className="a8-pkg-user-nav-close-icon"
+                    />
+                  )}
 
                   <Flex
-                    className="a8-pkg-user-nav-account--balance"
                     align="center"
-                    justify="space-between"
+                    justify="center"
+                    className="a8-pkg-user-nav-avatar"
                   >
-                    <Flex gap={4} align="center">
-                      <Typography.Text className="a8-pkg-user-nav-account--balance--token">
-                        {formatNumber(Number(account?.balanceFormatted))}
-                      </Typography.Text>
+                    <InternalAccountAvatar address={address} size={100} />
+                    <AvatarBorder />
+                    <AvatarBorderDeco />
+                  </Flex>
 
-                      <Icon component={EthToken} />
-                    </Flex>
+                  <Flex
+                    vertical
+                    align="center"
+                    className="a8-pkg-user-nav-title"
+                    gap={12}
+                  >
+                    <UserNavHr />
+                    <Typography.Text className="a8-pkg-user-nav-title-text">
+                      ECOSYSTEM CITIZEN
+                    </Typography.Text>
+                    <UserNavHr className="rotate-180" />
+                  </Flex>
 
-                    <Typography.Text className="a8-pkg-user-nav-account--balance--usd">
-                      $
-                      {formatNumber(
-                        Number(account?.balanceFormatted) * ethereumPrice,
+                  <Flex vertical className="a8-pkg-user-nav-account" gap={12}>
+                    <Typography.Text
+                      className="a8-pkg-user-nav-account--address"
+                      onClick={() => {
+                        setIsCopiedAddress(true)
+                        copy(address ?? '')
+                        setTimeout(() => {
+                          setIsCopiedAddress(false)
+                        }, 3000)
+                      }}
+                    >
+                      {shortenAddress(address)}
+                      {!isCopiedAddress ? (
+                        <Tooltip
+                          title="Copy"
+                          trigger={['hover']}
+                          open={isCopiedAddress ? true : undefined}
+                        >
+                          <Icon component={CopyIcon} key="Copy" />
+                        </Tooltip>
+                      ) : (
+                        <Tooltip
+                          title="Copied"
+                          open={isCopiedAddress ? true : undefined}
+                        >
+                          <Icon component={CopiedIcon} key="Copied" />
+                        </Tooltip>
                       )}
                     </Typography.Text>
-                  </Flex>
 
-                  <Flex
-                    className="a8-pkg-user-nav-account--balance"
-                    align="center"
-                    justify="space-between"
-                  >
-                    <Flex gap={4} align="center">
-                      <Typography.Text className="a8-pkg-user-nav-account--balance--token">
-                        {formatNumber(Number(a8TokenBalance))}
+                    <Flex
+                      className="a8-pkg-user-nav-account--balance"
+                      align="center"
+                      justify="space-between"
+                    >
+                      <Flex gap={4} align="center">
+                        <Typography.Text className="a8-pkg-user-nav-account--balance--token">
+                          {formatNumber(Number(account?.balanceFormatted ?? 0))}
+                        </Typography.Text>
+
+                        <div>
+                          <Icon component={EthToken} />
+                        </div>
+                      </Flex>
+
+                      <Typography.Text className="a8-pkg-user-nav-account--balance--usd">
+                        $
+                        {formatNumber(
+                          Number(account?.balanceFormatted ?? 0) *
+                            ethereumPrice,
+                        )}
                       </Typography.Text>
-
-                      <Icon component={A8Token} />
                     </Flex>
 
-                    <Typography.Text className="a8-pkg-user-nav-account--balance--usd">
-                      ${formatNumber(Number(a8TokenBalance) * ancient8Price)}
-                    </Typography.Text>
-                  </Flex>
-                </Flex>
+                    <Flex
+                      className="a8-pkg-user-nav-account--balance"
+                      align="center"
+                      justify="space-between"
+                    >
+                      <Flex gap={4} align="center">
+                        <Typography.Text className="a8-pkg-user-nav-account--balance--token">
+                          {formatNumber(Number(a8TokenBalance))}
+                        </Typography.Text>
 
-                <div className="a8-pkg-user-nav-menu">{menu}</div>
-              </Flex>
-            )
-          }}
-        >
-          <InternalConnectButton
-            onClick={isMobile ? () => setOpen(true) : undefined}
-          />
-        </Dropdown>
+                        <div>
+                          <Icon component={A8Token} />
+                        </div>
+                      </Flex>
+
+                      <Typography.Text className="a8-pkg-user-nav-account--balance--usd">
+                        ${formatNumber(Number(a8TokenBalance) * ancient8Price)}
+                      </Typography.Text>
+                    </Flex>
+                  </Flex>
+
+                  <div className="a8-pkg-user-nav-menu">{menu}</div>
+                </Flex>
+              )
+            }}
+          >
+            <InternalConnectButton
+              onClick={isMobile ? () => setOpen(true) : undefined}
+            />
+          </Dropdown>
+        </Flex>
       )}
     </RainbowKitConnectButton.Custom>
   )

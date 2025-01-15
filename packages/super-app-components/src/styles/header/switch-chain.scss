@@ -1,0 +1,54 @@
+.a8-pkg-switch-chain {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: 48px;
+  overflow: hidden;
+
+  &--chain-item {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    transition: var(--a8-transition);
+    position: relative;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    &--indicator {
+      transition: var(--a8-transition);
+      background: var(--a8-primary);
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translate(-50%);
+      width: 30px;
+      height: 2px;
+    }
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 991.99px) {
+  .a8-pkg-switch-chain {
+    height: 36px;
+
+    &--chain-item {
+      width: 36px;
+      height: 36px;
+
+      &--indicator {
+        width: 26px;
+      }
+
+      &-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
