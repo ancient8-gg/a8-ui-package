@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.1.0
+
+### Minor Changes
+
+- a077314: Add switch chain area
+
 ## 2.0.2
 
 ### Patch Changes
