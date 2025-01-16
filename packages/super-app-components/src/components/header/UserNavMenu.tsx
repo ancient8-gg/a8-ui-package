@@ -94,7 +94,7 @@ function UserNavMenu() {
     <RainbowKitConnectButton.Custom>
       {({ account, chain }) => (
         <Flex gap={12}>
-          <SwitchChain currentChainId={chain?.id} />
+          {!!chain && <SwitchChain currentChainId={chain?.id} />}
 
           <Dropdown
             open={!isConnected ? false : isMobile ? open : undefined}

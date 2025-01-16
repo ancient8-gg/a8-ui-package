@@ -65,7 +65,7 @@ const InternalConnectButton = React.forwardRef<
                 classNames?.connect ?? '',
               )}
             >
-              Connect wallet
+              Connect {!isMobile && 'Wallet'}
             </Button>
           )
 
