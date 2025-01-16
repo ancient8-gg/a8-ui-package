@@ -13,8 +13,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 48px;
-      height: 48px;
+      width: var(--a8-btn-height-md); //square
+      height: var(--a8-btn-height-md);
 
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.08) !important;

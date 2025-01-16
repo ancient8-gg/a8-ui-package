@@ -1,12 +1,12 @@
 .a8-pkg-switch-chain {
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  height: 48px;
+  height: var(--a8-btn-height-md);
   overflow: hidden;
 
   &--chain-item {
-    width: 48px;
-    height: 48px;
+    width: var(--a8-btn-height-md); //square
+    height: var(--a8-btn-height-md);
     cursor: pointer;
     transition: var(--a8-transition);
     position: relative;
@@ -35,11 +35,11 @@
 
 @media screen and (max-width: 991.99px) {
   .a8-pkg-switch-chain {
-    height: 36px;
+    height: var(--a8-btn-height-sm);
 
     &--chain-item {
-      width: 36px;
-      height: 36px;
+      width: var(--a8-btn-height-sm); //square
+      height: var(--a8-btn-height-sm);
 
       &--indicator {
         width: 26px;
