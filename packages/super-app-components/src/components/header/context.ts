@@ -5,7 +5,7 @@ import type { HeaderConfig } from './types'
 const initialConfig: HeaderConfig = {
   header: {
     baseUrl: '',
-    startsA8Proxy: '',
+    utilsApi: '',
   },
 }
 
