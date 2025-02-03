@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.2.0
+
+### Minor Changes
+
+- 74ebb21: Update price api
+
 ## 2.1.1
 
 ### Patch Changes
