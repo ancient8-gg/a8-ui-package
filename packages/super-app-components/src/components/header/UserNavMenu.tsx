@@ -202,7 +202,7 @@ function UserNavMenu() {
                     >
                       <Flex gap={4} align="center">
                         <Typography.Text className="a8-pkg-user-nav-account--balance--token">
-                          {formatNumber(Number(a8TokenBalance))}
+                          {formatNumber(Number(a8TokenBalance ?? 0))}
                         </Typography.Text>
 
                         <div>
@@ -211,7 +211,10 @@ function UserNavMenu() {
                       </Flex>
 
                       <Typography.Text className="a8-pkg-user-nav-account--balance--usd">
-                        ${formatNumber(Number(a8TokenBalance) * ancient8Price)}
+                        $
+                        {formatNumber(
+                          Number(a8TokenBalance ?? 0) * ancient8Price,
+                        )}
                       </Typography.Text>
                     </Flex>
                   </Flex>

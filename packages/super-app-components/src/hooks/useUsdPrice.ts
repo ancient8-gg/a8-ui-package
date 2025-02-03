@@ -10,7 +10,7 @@ type ResType = Record<TokenIdType, { usd: number }>
 
 export const useUsdPrice = () => {
   const {
-    header: { startsA8Proxy },
+    header: { utilsApi },
   } = useContext(HeaderConfigContext)
 
   const { data: price } = useQuery({
@@ -21,7 +21,7 @@ export const useUsdPrice = () => {
     } as ResType,
     queryFn: async () => {
       const { data } = await axios.get<ResType>(
-        `${startsA8Proxy}/coingecko/simple/price`,
+        `${utilsApi}/price`,
         {
           params: {
             ids: 'ancient8,ethereum',

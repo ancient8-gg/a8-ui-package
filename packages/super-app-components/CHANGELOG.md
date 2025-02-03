@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.1.1
+
+### Patch Changes
+
+- df80e20: enhance connect button size and content
+
 ## 2.1.0
 
 ### Minor Changes

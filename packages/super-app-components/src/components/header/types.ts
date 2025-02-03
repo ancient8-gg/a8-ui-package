@@ -2,7 +2,7 @@ import type { CmsConfig, StrapiResponse } from 'types/cms.type'
 
 export type HeaderConfig = {
   header: {
-    startsA8Proxy: string
+    utilsApi: string
   } & CmsConfig
 }
 

@@ -12,7 +12,7 @@ function MainLayout({ children }: PropsWithChildren) {
         },
         header: {
           baseUrl: 'https://cms-dev.ancient8.gg/api/user-nav-menus',
-          startsA8Proxy: 'https://app-dev.ancient8.gg',
+          utilsApi: 'https://utils-api.ancient8.gg',
         },
       }}
     >
