@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, useCallback } from 'react'
 import { useAccount, useDisconnect } from 'wagmi'
 import { ConnectButton as RainbowKitConnectButton } from '@rainbow-me/rainbowkit'
 import copy from 'copy-to-clipboard'
@@ -48,6 +48,10 @@ function UserNavMenu() {
   const { ancient8: ancient8Price, ethereum: ethereumPrice } = useUsdPrice()
   const a8TokenBalance = useA8TokenBalance()
 
+  const handleDisconnect = useCallback(() => {
+    disconnect()
+  }, [disconnect])
+
   const items: MenuProps['items'] = useMemo(() => {
     const menuData = data.map(({ id, icon, title, linkTo }) => ({
       key: id,
@@ -70,13 +74,11 @@ function UserNavMenu() {
           Disconnect
         </Flex>
       ),
-      onClick: () => {
-        () => disconnect()
-      },
+      onClick: handleDisconnect,
     })
 
     return menuData
-  }, [data])
+  }, [data, handleDisconnect])
 
   useEffect(() => {
     setOpen(false)
