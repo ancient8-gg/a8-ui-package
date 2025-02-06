@@ -2,4 +2,4 @@
 '@ancient8/components': patch
 ---
 
-Fix disconnect behavior
+fix unreloaded error when disconnect
