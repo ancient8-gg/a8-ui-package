@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.2.1
+
+### Patch Changes
+
+- 6139691: Fix disconnect behavior
+
 ## 2.2.0
 
 ### Minor Changes
