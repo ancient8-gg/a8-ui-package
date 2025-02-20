@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.2.2
+
+### Patch Changes
+
+- 1cb1121: fix unreloaded error when disconnect
+
 ## 2.2.1
 
 ### Patch Changes

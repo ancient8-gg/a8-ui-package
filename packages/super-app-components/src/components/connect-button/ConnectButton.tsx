@@ -108,7 +108,9 @@ const InternalConnectButton = React.forwardRef<
                   gap={8}
                 >
                   <Avatar size={24} src={chain.iconUrl} />
-                  <Typography.Text>{account.displayBalance}</Typography.Text>
+                  <Typography.Text>
+                    {account.displayBalance ?? '0'}
+                  </Typography.Text>
                 </Flex>
 
                 <Divider type="vertical" style={{ height: 22 }} />

@@ -1,6 +1,6 @@
 {
   "name": "@ancient8/components",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": "ancient8",
   "description": "Ancient8 Components",
   "license": "MIT",
@@ -26,6 +26,7 @@
   },
   "publishConfig": {
     "access": "public",
+    "provenance": true,
     "typesVersions": {
       "*": {
         "index": [
