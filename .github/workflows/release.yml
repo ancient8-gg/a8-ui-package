@@ -19,7 +19,7 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     permissions:
-      content: read
+      contents: read
       id-token: write
     defaults:
       run:
