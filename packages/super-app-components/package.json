@@ -7,6 +7,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ancient8-gg/a8-ui-package"
+  },
   "sideEffects": false,
   "exports": {
     ".": {
