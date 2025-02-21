@@ -18,6 +18,9 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      content: read
+      id-token: write
     defaults:
       run:
         shell: bash
