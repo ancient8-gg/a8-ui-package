@@ -1,5 +1,11 @@
 # @ancient8/components
 
+## 2.2.3
+
+### Patch Changes
+
+- 603b487: chore: enhance for ssr
+
 ## 2.2.2
 
 ### Patch Changes

@@ -1,12 +1,16 @@
 {
   "name": "@ancient8/components",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "author": "ancient8",
   "description": "Ancient8 Components",
   "license": "MIT",
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ancient8-gg/a8-ui-package"
+  },
   "sideEffects": false,
   "exports": {
     ".": {
