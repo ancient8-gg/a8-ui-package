@@ -6,7 +6,7 @@
     "dev": "react-scripts start",
     "dev:origin": "react-scripts start",
     "build": "react-scripts build",
-    "clean": "rimraf build"
+    "clean": "rimraf build && rimraf .turbo"
   },
   "dependencies": {
     "@ancient8/components": "workspace:*",

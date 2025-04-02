@@ -18,7 +18,7 @@
       "require": "./dist/cjs/index.js"
     },
     "./styles.scss": {
-      "default": "./dist/esm/styles/index.scss"
+      "default": "./dist/styles/index.scss"
     }
   },
   "typesVersions": {
@@ -40,15 +40,23 @@
     }
   },
   "scripts": {
-    "clean": "rimraf ./dist; rimraf ./.turbo;",
-    "build": "pnpm build:esm && pnpm build:cjs && pnpm build:types",
-    "prebuild": "rimraf ./dist; rimraf ./tsconfig.tsbuildinfo",
-    "postbuild": "rimraf ./dist/tsconfig.tsbuildinfo",
-    "build:esm": "swc src -d dist/esm --copy-files --strip-leading-paths --config-file ./.swcrc.esm.json",
-    "build:cjs": "swc src -d dist/cjs --ignore **/*.scss --ignore ./src/assets/fonts --copy-files --strip-leading-paths --config-file ./.swcrc.cjs.json",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist/esm && tsc --emitDeclarationOnly --outDir dist/cjs && tsc-alias --outDir dist/esm && tsc-alias --outDir dist/cjs",
-    "dev": "run-p \"build:esm -w\" \"build:cjs -w\" \"build:types -w\"",
-    "predev": "rimraf ./dist"
+    "clean": "rimraf .turbo",
+    "build:esm": "swc src -d dist/esm -D --ignore src/styles --strip-leading-paths --config-file ./.swcrc.esm.json",
+    "build:cjs": "swc src -d dist/cjs -D --ignore src/styles --strip-leading-paths --config-file ./.swcrc.cjs.json",
+    "build:types-esm": "tsc -p tsconfig.build.json --emitDeclarationOnly --noCheck --outDir dist/esm",
+    "build:types-cjs": "tsc -p tsconfig.build.json --emitDeclarationOnly --noCheck --outDir dist/cjs",
+    "build:alias-esm": "tsc-alias --outDir dist/esm",
+    "build:alias-cjs": "tsc-alias --outDir dist/cjs",
+    "build:style-extract": "swc src/styles -d dist -D --ignore src/styles/tailwind.scss --strip-leading-paths",
+    "build:style": "pnpm build:style-extract && tailwindcss -i src/styles/tailwind.scss -o ./dist/styles/tailwind.scss --postcss postcss.config.mjs",
+    "dev:style": "tailwindcss -i src/styles/tailwind.scss -o ./dist/styles/tailwind.scss --watch",
+    "dev": "concurrently \"pnpm build:esm -w\" \"pnpm build:types-esm -w\" \"pnpm build:alias-esm -w\" \"pnpm build:style-extract -w\" \"pnpm dev:style\"",
+    "predev": "rimraf ./dist",
+    "build": "pnpm run \"/^build:.*/\" ",
+    "prebuild": "rimraf ./dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@rainbow-me/rainbowkit": "^2.2.0",
@@ -67,16 +75,25 @@
     "@swc/cli": "^0.4.0",
     "@swc/core": "^1.7.36",
     "@swc/helpers": "^0.5.13",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^20.16.0",
     "@types/react": "^18.3.11",
+    "@vitejs/plugin-react": "^4.3.2",
+    "@vitest/ui": "^3.1.1",
     "axios": "^1.7.7",
     "chokidar": "^4.0.1",
+    "concurrently": "^9.1.2",
     "iconsax-react": "^0.0.8",
+    "jsdom": "^26.0.0",
     "npm-run-all": "^4.1.5",
     "react-use": "^17.5.1",
     "rimraf": "^6.0.1",
     "sass": "^1.80.3",
+    "tailwindcss": "^3.4.17",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vitest": "^3.1.1"
   }
 }
