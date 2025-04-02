@@ -1,4 +1,4 @@
-import { IsolateTheme } from 'base'
+import { IsolateTheme } from 'components/base'
 import InternalFooter from './Footer'
 
 function Footer() {

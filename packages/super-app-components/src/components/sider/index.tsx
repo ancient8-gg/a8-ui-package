@@ -1,4 +1,4 @@
-import { IsolateTheme } from 'base'
+import { IsolateTheme } from 'components/base'
 import InternalSider from './Sider'
 
 import type { SiderProps, SiderConfig } from './types'

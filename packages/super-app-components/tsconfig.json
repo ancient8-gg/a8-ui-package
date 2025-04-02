@@ -16,11 +16,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "rootDir": "./src",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "types": ["vitest/globals"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["global.d.ts", "src/**/*.ts", "src/**/*.tsx"],
   "ts-alias": {
     "resolveFullPaths": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
