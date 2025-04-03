@@ -13,9 +13,9 @@ import {
 
 import AccountAvatar from './AccountAvatar'
 
-import useIsMobile from 'hooks/useIsMobile'
+import useIsMobile from '@/hooks/useIsMobile'
 
-import { shortenAddress } from 'utils'
+import { shortenAddress } from '@/utils'
 
 export type ConnectButtonProps = {
   isSwitchChain?: boolean

@@ -1,4 +1,4 @@
-import type { CmsConfig, StrapiResponse } from 'types/cms.type'
+import type { CmsConfig, StrapiResponse } from '@/types/cms.type'
 
 export type SiderConfig = {
   sider: CmsConfig

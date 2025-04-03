@@ -7,7 +7,7 @@ import {
   TelegramIcon,
   XIcon,
   YoutubeIcon,
-} from 'assets/icons'
+} from '@/assets/icons'
 
 type SocialsType = Record<
   string,

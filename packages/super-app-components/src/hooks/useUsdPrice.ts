@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import { useContext } from 'react'
 
-import { HeaderConfigContext } from 'components/header/context'
+import { HeaderConfigContext } from '@/components/header/context'
 
 export type TokenIdType = 'ethereum' | 'ancient8'
 
@@ -20,15 +20,12 @@ export const useUsdPrice = () => {
       ethereum: { usd: 3400 },
     } as ResType,
     queryFn: async () => {
-      const { data } = await axios.get<ResType>(
-        `${utilsApi}/price`,
-        {
-          params: {
-            ids: 'ancient8,ethereum',
-            vs_currencies: 'usd',
-          },
+      const { data } = await axios.get<ResType>(`${utilsApi}/price`, {
+        params: {
+          ids: 'ancient8,ethereum',
+          vs_currencies: 'usd',
         },
-      )
+      })
       return data
     },
     refetchIntervalInBackground: true,

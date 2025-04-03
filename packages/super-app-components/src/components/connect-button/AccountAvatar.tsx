@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 
 import { Avatar } from 'antd'
 
-import { emojiAvatarForAddress } from 'utils/emoji-avatar'
+import { emojiAvatarForAddress } from '@/utils/emoji-avatar'
 
 type AccountAvatarProps = {
   address?: string

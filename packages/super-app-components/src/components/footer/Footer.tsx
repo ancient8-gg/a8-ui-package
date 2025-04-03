@@ -1,10 +1,10 @@
 import { Flex, Typography, Space } from 'antd'
 
-import Socials from 'components/footer/Socials'
+import Socials from '@/components/footer/Socials'
 
-import useIsMobile from 'hooks/useIsMobile'
+import useIsMobile from '@/hooks/useIsMobile'
 
-import { Brand } from 'assets/icons'
+import { Brand } from '@/assets/icons'
 
 function Footer() {
   const isMobile = useIsMobile()

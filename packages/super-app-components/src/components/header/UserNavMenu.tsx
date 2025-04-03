@@ -16,15 +16,15 @@ import Icon from '@ant-design/icons'
 import {
   InternalConnectButton,
   InternalAccountAvatar,
-} from 'components/connect-button'
+} from '@/components/connect-button'
 import SwitchChain from './SwitchChain'
 
 import { useUserNavItems } from './hooks/useUserNavItems'
 import { useA8TokenBalance } from './hooks/useA8TokenBalance'
-import { useUsdPrice } from 'hooks/useUsdPrice'
-import useIsMobile from 'hooks/useIsMobile'
+import { useUsdPrice } from '@/hooks/useUsdPrice'
+import useIsMobile from '@/hooks/useIsMobile'
 
-import { shortenAddress, formatNumber } from 'utils'
+import { shortenAddress, formatNumber } from '@/utils'
 
 import { CloseCircle as CloseIcon } from 'iconsax-react'
 import {
@@ -34,8 +34,8 @@ import {
   CopyIcon,
   CopiedIcon,
   UserNavHr,
-} from 'assets/icons'
-import { A8Token, EthToken } from 'assets/logo'
+} from '@/assets/icons'
+import { A8Token, EthToken } from '@/assets/logo'
 
 function UserNavMenu() {
   const { address, isConnected, chain } = useAccount()
