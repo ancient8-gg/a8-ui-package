@@ -11,7 +11,6 @@ describe('cn', () => {
     expect(cn('text-lg', 'text-lg', 'text-center')).toBe('text-lg text-center')
   })
 
-
   test('merge padding', () => {
     expect(cn('p-0', 'px-2', 'py-3')).toBe('p-0 px-2 py-3')
   })
