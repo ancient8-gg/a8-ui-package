@@ -1,0 +1,3 @@
+export const MAX_INTEGER_DIGITS = 11
+export const MAX_DECIMAL_INTEGER_DIGITS = 10
+export const MAX_DECIMAL_FRACTION_DIGITS = 6
