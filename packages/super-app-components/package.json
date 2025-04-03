@@ -19,6 +19,9 @@
     },
     "./styles.scss": {
       "default": "./dist/styles/index.scss"
+    },
+    "./utils": {
+      "default": "./dist/esm/utils/index.js"
     }
   },
   "typesVersions": {
@@ -67,6 +70,7 @@
     "copy-to-clipboard": "^3.3.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "tailwind-merge": "^3.1.0",
     "viem": "^2.0.0",
     "wagmi": "^2.0.0",
     "zustand": "^5.0.0"
