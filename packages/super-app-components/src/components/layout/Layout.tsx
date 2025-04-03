@@ -2,8 +2,8 @@ import clsx from 'clsx'
 
 import { Flex, Layout as AntdLayout } from 'antd'
 
-import { InternalHeader } from 'components/header'
-import { InternalSider } from 'components/sider'
+import { InternalHeader } from '@/components/header'
+import { InternalSider } from '@/components/sider'
 
 import type { LayoutProps } from './types'
 

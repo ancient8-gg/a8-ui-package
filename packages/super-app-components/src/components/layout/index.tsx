@@ -1,4 +1,4 @@
-import { IsolateTheme } from 'components/base'
+import { IsolateTheme } from '@/components/base'
 import InternalLayout from './Layout'
 
 import type { LayoutProps } from './types'

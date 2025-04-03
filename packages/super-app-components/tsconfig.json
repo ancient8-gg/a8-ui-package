@@ -16,7 +16,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "rootDir": "./src",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "types": ["vitest/globals"],
     "paths": {
       "@/*": ["./src/*"]

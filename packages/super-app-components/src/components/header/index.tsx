@@ -1,4 +1,4 @@
-import { IsolateTheme } from 'components/base'
+import { IsolateTheme } from '@/components/base'
 import InternalHeader from './Header'
 
 import type { HeaderProps, HeaderConfig } from './types'
