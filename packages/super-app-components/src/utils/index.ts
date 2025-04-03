@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 import clsx, { ClassValue } from 'clsx';
 
-import { MAX_DECIMAL_FRACTION_DIGITS, MAX_DECIMAL_INTEGER_DIGITS, MAX_INTEGER_DIGITS } from "constants/number.constant"
+import { MAX_DECIMAL_FRACTION_DIGITS, MAX_DECIMAL_INTEGER_DIGITS, MAX_INTEGER_DIGITS } from "@/constants/number.constant"
 
 export function shortenAddress(address?: string, num = 4) {
   if (!address) return undefined
@@ -39,7 +39,7 @@ export function formatNumber(value: number, maximumFractionDigits = 3) {
  */
 
 export function formatInputNumber(value: number, maximumIntegerDigits?: number, maximumFractionDigits = MAX_DECIMAL_FRACTION_DIGITS): string {
-  const isFloat = value % 1 === 0
+  const isFloat = value % 1 !== 0
   const maxIntDigits = maximumIntegerDigits ?? (isFloat ? MAX_DECIMAL_INTEGER_DIGITS : MAX_INTEGER_DIGITS);
   const maxValue = Math.pow(10, maxIntDigits);
 
