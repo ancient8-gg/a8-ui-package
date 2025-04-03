@@ -1,26 +1,72 @@
 :root {
+  /**
+   * Colors
+   */
+  --color-primary-25: #f7fbf2;
   --color-primary-50: #f6ffeb;
   --color-primary-100: #e7f8d0;
   --color-primary-200: #d9f4b5;
-  --color-primary-300: #c6ee90;
-  --color-primary-500: #aee760; /* primary default*/
+  --color-primary-400: #c6ee90;
+  --color-primary-500: #aee760; /* primary default */
   --color-primary-600: #9ccf56;
-  --color-primary-800: #79a043;
-  --color-primary-850: #4b6329;
-  --color-primary-900: #1c270d;
-  --color-primary-950: #0e1209;
+  --color-primary-700: #4b6329;
+  --color-primary-800: #1c270d;
+  --color-primary-900: #0b0f06;
 
-  --color-neutral-0: #ffffff;
-  --color-neutral-50: #f0f0f0;
-  --color-neutral-100: #e3e3e3;
-  --color-neutral-200: #cccccc;
-  --color-neutral-300: #aeaeae;
-  --color-neutral-400: #8e8e8e;
-  --color-neutral-500: #676767;
-  --color-neutral-600: #4d4d4d;
-  --color-neutral-700: #333333;
+  --color-neutral-0: #0a0a0a;
+  --color-neutral-25: #1b1b1b;
+  --color-neutral-50: #333;
+  --color-neutral-100: #4d4d4d;
+  --color-neutral-200: #676767;
+  --color-neutral-300: #8e8e8e;
+  --color-neutral-500: #aeaeae; /* neutral default */
+  --color-neutral-700: #ccc;
   --color-neutral-800: #1a1a1a;
-  --color-neutral-900: #0f0f0f;
+  --color-neutral-900: #fff;
 
-  --button-size-md-height: 12px;
+  --color-success-50: #203833;
+  --color-success-500: #12b76a; /* success default */
+  --color-success-700: #5acd97;
+
+  --color-warning-50: #3a3326;
+  --color-warning-500: #eaaa08; /* warning default */
+  --color-warning-700: #f1c75c;
+
+  --color-error-50: #40212c;
+  --color-error-500: #e01839; /* error default */
+  --color-error-700: #e95a71;
+
+  /**
+   * border-radius
+   */
+  --border-radius-full: 9999px;
+  --border-radius-sharp: 0;
+  --border-radius-xxs: 2px;
+  --border-radius-xs: 3px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --border-radius-xl: 12px;
+  --border-radius-2xl: 16px;
+  --border-radius-3xl: 20px;
+  --border-radius-4xl: 24px;
+  --border-radius-5xl: 32px;
+  --border-radius-6xl: 40px;
+
+  /**
+   * Button
+   */
+  --button-height-xs: 24px;
+  --button-height-sm: 36px;
+  --button-height-md: 44px;
+  --button-height-lg: 56px;
+
+  --button-padding-xs: 6px;
+  --button-padding-sm: 8px;
+  --button-padding-md: 12px;
+  --button-padding-lg: 16px;
+
+  /**
+ * Spacing
+ */
 }
