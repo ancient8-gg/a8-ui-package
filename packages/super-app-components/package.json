@@ -75,6 +75,7 @@
     "copy-to-clipboard": "^3.3.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-ga4": "^2.1.0",
     "viem": "^2.0.0",
     "wagmi": "^2.0.0",
     "zustand": "^5.0.0"
@@ -97,7 +98,6 @@
     "iconsax-react": "^0.0.8",
     "jsdom": "^26.0.0",
     "npm-run-all": "^4.1.5",
-    "react-ga4": "^2.1.0",
     "react-use": "^17.5.1",
     "rimraf": "^6.0.1",
     "sass": "^1.80.3",
