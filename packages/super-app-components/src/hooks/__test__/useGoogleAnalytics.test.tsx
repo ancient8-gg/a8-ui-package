@@ -22,7 +22,7 @@ describe('useGoogleAnalytics', () => {
     vi.clearAllMocks()
   })
 
-  test('should initialize Google Analytics when enabled is true', () => {
+  test('initializes Google Analytics when enabled is true', () => {
     renderHook(() => useGoogleAnalytics('GTM-XXXX', true))
 
     expect(ReactGA.initialize).toHaveBeenCalledWith([
@@ -30,13 +30,13 @@ describe('useGoogleAnalytics', () => {
     ])
   })
 
-  test('should not initialize Google Analytics when enabled is false', () => {
+  test('skips Google Analytics initialization when disabled', () => {
     renderHook(() => useGoogleAnalytics('GTM-XXXX', false))
 
     expect(ReactGA.initialize).not.toHaveBeenCalled()
   })
 
-  test('should not initialize Google Analytics when gtmId is empty', () => {
+  test('skips Google Analytics initialization with empty gtmId', () => {
     renderHook(() => useGoogleAnalytics('', true))
 
     expect(ReactGA.initialize).not.toHaveBeenCalled()

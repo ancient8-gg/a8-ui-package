@@ -29,8 +29,8 @@ const Wrapper = ({ children }: PropsWithChildren) => {
   )
 }
 
-describe('useUsdPrice internal logic', () => {
-  test('should return the correct initial data', async () => {
+describe('useUsdPrice', () => {
+  test('returns default prices initially', async () => {
     const { result } = renderHook(() => useUsdPrice(), { wrapper: Wrapper })
     await waitFor(() => {
       expect(result.current).toEqual({
@@ -40,7 +40,7 @@ describe('useUsdPrice internal logic', () => {
     })
   })
 
-  test('should fetch and return updated price data from API', async () => {
+  test('returns updated prices from API', async () => {
     ;(axios.get as any).mockResolvedValueOnce({
       data: {
         ancient8: { usd: 0.6 },
@@ -58,7 +58,7 @@ describe('useUsdPrice internal logic', () => {
     })
   })
 
-  test('should fallback to 0 if API response is missing values', async () => {
+  test('returns 0 for missing token in API', async () => {
     ;(axios.get as any).mockResolvedValueOnce({
       data: {
         ethereum: { usd: 3000 },
