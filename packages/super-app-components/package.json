@@ -23,6 +23,10 @@
     "./utils": {
       "import": "./dist/esm/utils/index.js",
       "require": "./dist/cjs/utils/index.js"
+    },
+    "./hooks": {
+      "import": "./dist/esm/hooks/index.js",
+      "require": "./dist/cjs/hooks/index.js"
     }
   },
   "typesVersions": {
@@ -71,6 +75,7 @@
     "copy-to-clipboard": "^3.3.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-ga4": "^2.1.0",
     "viem": "^2.0.0",
     "wagmi": "^2.0.0",
     "zustand": "^5.0.0"
