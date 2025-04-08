@@ -32,7 +32,7 @@ const InternalConnectButton = React.forwardRef<
   HTMLButtonElement,
   ConnectButtonProps
 >((props, ref) => {
-  const { isSwitchChain, className, classNames, ...params } = props
+  const { className, classNames, ...params } = props
   const isMobile = useIsMobile()
 
   return (
@@ -135,5 +135,7 @@ const InternalConnectButton = React.forwardRef<
     </RainbowKitConnectButton.Custom>
   )
 })
+
+InternalConnectButton.displayName = 'ConnectButton'
 
 export default InternalConnectButton

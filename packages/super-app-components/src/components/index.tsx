@@ -12,4 +12,7 @@ export type { SiderProps } from './sider'
 export { default as Layout } from './layout'
 export type { LayoutProps } from './layout'
 
+export { default as Loading } from './loading'
+export type { LoadingProps } from './loading'
+
 export { default as Footer } from './footer'

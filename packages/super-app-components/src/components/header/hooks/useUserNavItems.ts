@@ -40,6 +40,7 @@ export const useUserNavItems = () => {
 
   const initialDataLocal = JSON.parse(localStorage.getItem(QUERY_KEY) ?? '[]')
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   return useQuery<UserNavMenuType[]>({
     queryKey: [QUERY_KEY],
     initialData: initialDataLocal,
