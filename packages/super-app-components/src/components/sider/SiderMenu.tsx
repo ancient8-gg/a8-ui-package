@@ -42,8 +42,8 @@ function SiderMenu() {
   }, [])
 
   const { items, hasChildren } = useMemo(() => {
-    let hasChildren: string[] = []
-    let items: MenuItem[] = []
+    const hasChildren: string[] = []
+    const items: MenuItem[] = []
 
     data.forEach((item) => {
       if (item.children?.length) {
@@ -100,7 +100,7 @@ function SiderMenu() {
       items,
       hasChildren,
     }
-  }, [data])
+  }, [data, isMenuSelected, setSiderCollapsed])
 
   useEffect(() => {
     if (siderCollapsed) {

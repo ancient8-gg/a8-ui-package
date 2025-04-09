@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority'
 
 export const buttonVariants = cva(
-  'flex cursor-pointer items-center shadow-none transition',
+  'flex cursor-pointer items-center justify-center shadow-none transition-all',
   {
     variants: {
       type: {
@@ -10,7 +10,7 @@ export const buttonVariants = cva(
       },
       variant: {
         solid: '',
-        lightSolid: '',
+        'light-solid': '',
         outline: '',
         ghost: '',
         text: '!h-fit !p-0',
@@ -22,7 +22,10 @@ export const buttonVariants = cva(
         lg: 'h-btn-lg px-btn-lg gap-1.5 rounded-lg text-[16px] font-bold',
       },
       disabled: {
-        true: 'cursor-not-allowed',
+        true: '!cursor-not-allowed',
+      },
+      loading: {
+        true: '!cursor-not-allowed',
       },
       block: {
         true: 'w-full',
@@ -37,7 +40,7 @@ export const buttonVariants = cva(
       },
       {
         type: 'primary',
-        variant: 'lightSolid',
+        variant: 'light-solid',
         class: 'text-primary bg-primary-800 hover:bg-primary-700',
       },
       {
@@ -61,7 +64,7 @@ export const buttonVariants = cva(
       },
       {
         type: 'neutral',
-        variant: 'lightSolid',
+        variant: 'light-solid',
         class: 'bg-neutral-50 hover:bg-neutral-100',
       },
       {
@@ -80,7 +83,7 @@ export const buttonVariants = cva(
       // disabled
       {
         type: ['primary', 'neutral'],
-        variant: ['solid', 'lightSolid'],
+        variant: ['solid', 'light-solid'],
         disabled: true,
         class: 'bg-neutral-25 hover:bg-neutral-25 text-neutral-100',
       },

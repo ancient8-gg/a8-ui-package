@@ -13,6 +13,7 @@ type SocialsType = Record<
   string,
   {
     url: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     icon: any // Couldn't infer type, so we cast to any
   }
 >

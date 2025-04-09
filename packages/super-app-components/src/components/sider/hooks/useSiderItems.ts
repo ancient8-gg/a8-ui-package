@@ -92,6 +92,7 @@ export const useSiderItems = () => {
   //   ...rest,
   // }
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   return useQuery<SiderMenuType[]>({
     queryKey: [QUERY_KEY],
     initialData: initialDataLocal,

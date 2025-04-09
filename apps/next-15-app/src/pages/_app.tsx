@@ -1,6 +1,4 @@
 import type { AppProps } from 'next/app'
-import '@/styles/globals.css'
-
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { WagmiProvider } from 'wagmi'
 
@@ -18,12 +16,14 @@ import {
   okxWallet,
 } from '@rainbow-me/rainbowkit/wallets'
 import * as allWallets from '@rainbow-me/rainbowkit/wallets'
-import { sepolia, ancient8Sepolia, mainnet, ancient8 } from 'viem/chains'
+import { sepolia, ancient8Sepolia } from 'viem/chains'
+
+import type { ReactNode, ReactElement } from 'react'
+import type { NextPage } from 'next'
 
 import '@rainbow-me/rainbowkit/styles.css'
 import '@ancient8/components/styles.scss'
-import type { ReactNode, ReactElement } from 'react'
-import type { NextPage } from 'next'
+import '@/styles/globals.css'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -36,9 +36,7 @@ type AppPropsWithLayout = AppProps & {
 const queryClient = new QueryClient()
 
 const supportedChains = [
-  // { ...mainnet, iconUrl: '/img/eth-logo-chain.png' },
   { ...sepolia, iconUrl: '/img/eth-logo-chain.png' },
-  { ...ancient8, iconUrl: '/img/a8-logo-chain.png' },
   { ...ancient8Sepolia, iconUrl: '/img/a8-logo-chain.png' },
 ] as [RainbowKitChain, ...RainbowKitChain[]]
 

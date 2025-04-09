@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
   "extends": "./tsconfig.json",
   "exclude": ["**/*/__test__"]
 }
