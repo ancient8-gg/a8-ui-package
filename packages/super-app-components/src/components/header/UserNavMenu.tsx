@@ -224,6 +224,7 @@ function UserNavMenu() {
           >
             <InternalConnectButton
               onClick={isMobile ? () => setOpen(true) : undefined}
+              variant="light-solid"
             />
           </Dropdown>
         </Flex>

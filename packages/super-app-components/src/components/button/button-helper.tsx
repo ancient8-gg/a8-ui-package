@@ -16,10 +16,10 @@ export const buttonVariants = cva(
         text: '!h-fit !p-0',
       },
       size: {
-        xs: 'h-btn-xs rounded-xs px-btn-xs gap-1 text-[10px]',
-        sm: 'h-btn-sm px-btn-sm gap-1 rounded-sm text-[12px] font-medium',
-        md: 'h-btn-md px-btn-md gap-1.5 rounded-md text-[14px] font-medium',
-        lg: 'h-btn-lg px-btn-lg gap-1.5 rounded-lg text-[16px] font-bold',
+        xs: 'h-btn-xs rounded-xs px-btn-xs gap-1 text-[10px]/[1.2]',
+        sm: 'h-btn-sm px-btn-sm gap-1 rounded-sm text-[14px]/[1.2] font-medium',
+        md: 'h-btn-md px-btn-md gap-1.5 rounded-md text-[14px]/[1.2] font-medium',
+        lg: 'h-btn-lg px-btn-lg gap-1.5 rounded-lg text-[16px]/[1.2] font-bold',
       },
       disabled: {
         true: '!cursor-not-allowed',

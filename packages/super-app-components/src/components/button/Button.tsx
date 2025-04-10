@@ -12,7 +12,7 @@ import {
 } from 'react'
 
 import { buttonVariants } from './button-helper'
-import LoadingIconDefault from '@/components/button/LoadingIconDefault'
+import LoadingIconDefault from './LoadingIconDefault'
 
 import { cn } from '@/utils'
 

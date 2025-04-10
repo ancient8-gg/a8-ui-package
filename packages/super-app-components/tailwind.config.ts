@@ -64,6 +64,12 @@ export default {
           DEFAULT: '',
         },
       },
+      opacity: {
+        4: '0.04',
+        6: '0.06',
+        8: '0.08',
+        12: '0.12',
+      },
       screens: {
         mobile: { max: '991px' },
       },

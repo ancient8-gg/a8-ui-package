@@ -1,16 +1,20 @@
 import { useMemo } from 'react'
 
-import { Avatar } from 'antd'
-
-import { emojiAvatarForAddress } from '@/utils/emoji-avatar'
+import { cn, emojiAvatarForAddress } from '@/utils'
 
 type AccountAvatarProps = {
   address?: string
   ensAvatar?: string
   size?: number
+  className?: string
 }
 
-function AccountAvatar({ address, ensAvatar, size = 24 }: AccountAvatarProps) {
+function AccountAvatar({
+  address,
+  ensAvatar,
+  size = 18,
+  className,
+}: AccountAvatarProps) {
   const { color: backgroundColor, emoji } = useMemo(
     () => emojiAvatarForAddress(address ?? ''),
     [address],
@@ -18,17 +22,29 @@ function AccountAvatar({ address, ensAvatar, size = 24 }: AccountAvatarProps) {
 
   if (!ensAvatar)
     return (
-      <Avatar
-        style={{ backgroundColor, fontSize: (size * 2) / 3 }}
-        size={size}
-        className="a8-pkg-account-avatar"
+      <div
+        style={{
+          backgroundColor,
+          fontSize: (size * 2) / 3,
+          width: size,
+          height: size,
+        }}
+        className={cn(
+          'flex items-center justify-center rounded-full',
+          className,
+        )}
       >
-        {emoji}
-      </Avatar>
+        <span>{emoji}</span>
+      </div>
     )
 
   return (
-    <Avatar size={size} src={ensAvatar} className="a8-pkg-account-avatar" />
+    <img
+      style={{ width: size, height: size }}
+      src={ensAvatar}
+      className={cn('rounded-full', className)}
+      alt="avatar"
+    />
   )
 }
 
