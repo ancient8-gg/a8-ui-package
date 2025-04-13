@@ -66,13 +66,24 @@ describe('Checkbox', () => {
       'input[type="checkbox"]',
     ) as HTMLInputElement
 
-    expect(input).toHaveClass('h-4 w-4')
+    expect(input).toHaveClass('size-4')
   })
 
-  test('renders correctly sized icon for default (md) size when checked', () => {
-    const { container } = render(<Checkbox checked={true} />)
-    const icon = container.querySelector('svg')
-    expect(icon).not.toBeNull()
-    expect(icon).toHaveClass('w-3 h-3')
+  test('renders variant: solid', () => {
+    const { container } = render(<Checkbox checked variant="solid" />)
+    const input = container.querySelector('input[type="checkbox"]')!
+
+    expect(input.className).toMatch(/checked:bg-primary/)
+    expect(input.className).toMatch(/border-neutral-200/)
+    expect(input.className).toMatch(/hover:border-primary/)
+  })
+
+  test('renders variant: outline', () => {
+    const { container } = render(<Checkbox checked variant="outline" />)
+    const input = container.querySelector('input[type="checkbox"]')!
+
+    expect(input.className).toMatch(/checked:bg-transparent/)
+    expect(input.className).toMatch(/border-neutral-200/)
+    expect(input.className).toMatch(/hover:border-primary/)
   })
 })

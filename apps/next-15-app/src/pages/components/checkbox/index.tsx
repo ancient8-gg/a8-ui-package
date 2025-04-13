@@ -19,6 +19,19 @@ function CheckboxPage() {
         </div>
 
         <div>
+          <p className="text-base">Variants</p>
+          <div className="flex gap-4">
+            <div className="flex items-center gap-2">
+              <span>Solid:</span> <Checkbox variant="solid" checked={true} />
+            </div>
+            <div className="flex items-center gap-2">
+              <span>Outline:</span>{' '}
+              <Checkbox variant="outline" checked={true} />
+            </div>
+          </div>
+        </div>
+
+        <div>
           <p className="text-base">Checked default</p>
           <Checkbox checked={true} />
         </div>
