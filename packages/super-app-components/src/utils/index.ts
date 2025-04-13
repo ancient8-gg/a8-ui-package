@@ -1,4 +1,4 @@
 export * from './cn'
 export * from './emoji-avatar'
 export * from './format'
-export * from './shortenAddress'
+export * from './shorten-address'

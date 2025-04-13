@@ -10,13 +10,13 @@ const QUERY_KEY = 'user-nav-items'
 
 export const useUserNavItems = () => {
   const {
-    header: { baseUrl },
+    header: { strapiApi },
   } = useContext(HeaderConfigContext)
 
   const fetchUserNavItems = useCallback(
     async (page = 1) => {
       const { data } = await axios.get<Promise<UserNavStrapiResType>>(
-        `${baseUrl}`,
+        `${strapiApi}`,
         {
           params: {
             pagination: {
@@ -31,7 +31,7 @@ export const useUserNavItems = () => {
 
       return data
     },
-    [baseUrl],
+    [strapiApi],
   )
 
   if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
@@ -59,6 +59,6 @@ export const useUserNavItems = () => {
 
       return menus
     },
-    enabled: !!baseUrl,
+    enabled: !!strapiApi,
   })
 }

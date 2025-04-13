@@ -1,2 +1,3 @@
-export * from './useUsdPrice'
 export * from './useGoogleAnalytics'
+export * from './useIsMobile'
+export * from './useUsdPrice'

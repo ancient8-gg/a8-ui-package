@@ -6,7 +6,7 @@ import { type MenuProps, Menu, Image } from 'antd'
 import { useSiderItems } from './hooks/useSiderItems'
 import { useCollapseStore } from './stores/collapse.store'
 
-import { removeTrailingSlash } from '@/utils/removeTrailingSlash'
+import { removeTrailingSlash } from '@/utils/remove-trailing-slash'
 
 type MenuItem = Required<MenuProps>['items'][number]
 
