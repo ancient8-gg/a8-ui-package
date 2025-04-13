@@ -9,10 +9,10 @@ function MainLayout({ children }: PropsWithChildren) {
     <Layout
       config={{
         sider: {
-          baseUrl: 'https://cms-dev.ancient8.gg/api/side-menus',
+          strapiApi: 'https://cms-dev.ancient8.gg/api/side-menus',
         },
         header: {
-          baseUrl: 'https://cms-dev.ancient8.gg/api/user-nav-menus',
+          strapiApi: 'https://cms-dev.ancient8.gg/api/user-nav-menus',
           utilsApi: 'https://utils-api.ancient8.gg',
         },
       }}

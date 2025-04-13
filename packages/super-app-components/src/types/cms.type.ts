@@ -1,5 +1,5 @@
 export type CmsConfig = {
-  baseUrl: string
+  strapiApi: string
 }
 
 export type StrapiResponse<T> = {

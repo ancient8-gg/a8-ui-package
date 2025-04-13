@@ -4,7 +4,7 @@ import type { HeaderConfig } from './types'
 
 const initialConfig: HeaderConfig = {
   header: {
-    baseUrl: '',
+    strapiApi: '',
     utilsApi: '',
   },
 }
