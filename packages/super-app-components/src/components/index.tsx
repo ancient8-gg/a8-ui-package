@@ -1,6 +1,9 @@
 export { default as Button } from './button'
 export type { ButtonProps } from './button'
 
+export { default as Checkbox } from './checkbox'
+export type { CheckboxProps } from './checkbox'
+
 export { default as ConnectButton } from './connect-button'
 export type { ConnectButtonProps } from './connect-button'
 

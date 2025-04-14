@@ -1,6 +1,7 @@
 export * from './AvatarBorder'
 export * from './AvatarBorderDeco'
 export * from './Brand'
+export * from './CheckedIcon'
 export * from './CopyIcon'
 export * from './CopiedIcon'
 export * from './DiscordIcon'
