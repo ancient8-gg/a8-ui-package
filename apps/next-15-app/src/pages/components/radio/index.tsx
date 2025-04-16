@@ -1,11 +1,13 @@
-import { Button, RadioButton } from '@ancient8/components'
+import { RadioButton } from '@ancient8/components'
 
 import { getMainLayout } from '@/layouts/MainLayout'
 
-function ButtonPage() {
+function RadioButtonPage() {
   return (
     <section className="space-y-4">
-      <h1 className="text-primary text-center text-4xl font-bold">Radio Button</h1>
+      <h1 className="text-primary text-center text-4xl font-bold">
+        Radio Button
+      </h1>
       <h2 className="text-primary text-2xl font-bold">Base Usage</h2>
 
       <div className="mobile:flex-col flex gap-10">
@@ -44,6 +46,6 @@ function ButtonPage() {
   )
 }
 
-ButtonPage.getLayout = getMainLayout
+RadioButtonPage.getLayout = getMainLayout
 
-export default ButtonPage
+export default RadioButtonPage

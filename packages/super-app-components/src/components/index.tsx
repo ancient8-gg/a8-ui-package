@@ -22,3 +22,7 @@ export { default as Footer } from './footer'
 
 export { default as RadioButton } from './radio'
 export type { RadioButtonProps } from './radio'
+
+export { default as Tooltip } from './tooltip'
+export type { TooltipProps } from './tooltip'
+
