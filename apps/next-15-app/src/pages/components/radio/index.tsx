@@ -5,7 +5,7 @@ import { getMainLayout } from '@/layouts/MainLayout'
 function ButtonPage() {
   return (
     <section className="space-y-4">
-      <h1 className="text-primary text-center text-4xl font-bold">Button</h1>
+      <h1 className="text-primary text-center text-4xl font-bold">Radio Button</h1>
       <h2 className="text-primary text-2xl font-bold">Base Usage</h2>
 
       <div className="mobile:flex-col flex gap-10">

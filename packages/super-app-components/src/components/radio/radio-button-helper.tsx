@@ -1,13 +1,13 @@
 import { cva } from 'class-variance-authority'
 
 export const radioOuterVariants = cva(
-  'mr-2 flex items-center justify-center rounded-full border-[1.2px]',
+  'mr-2 flex items-center justify-center rounded-full',
   {
     variants: {
       size: {
-        sm: 'h-4 w-4 border border-[1.2px]',
-        md: 'h-5 w-5 border border-[1.6px]',
-        lg: 'h-6 w-6 border border-[2px]',
+        sm: 'size-4 border border-[1.2px]',
+        md: 'size-5 border border-[1.6px]',
+        lg: 'size-6 border border-[2px]',
       },
       checked: {
         true: '',
@@ -33,7 +33,7 @@ export const radioOuterVariants = cva(
         checked: false,
         disabled: true,
         className:
-          'hover:bg-transparent cursor-not-allowed border-neutral-100 bg-neutral-50',
+          'cursor-not-allowed border-neutral-100 bg-neutral-50 hover:bg-transparent',
       },
       {
         checked: false,
@@ -54,9 +54,9 @@ export const radioDotVariants = cva(
   {
     variants: {
       size: {
-        sm: 'h-2 w-2',
-        md: 'h-[10px] w-[10px]',
-        lg: 'h-3 w-3',
+        sm: 'size-2',
+        md: 'size-[10px]',
+        lg: 'size-3',
       },
     },
     defaultVariants: {

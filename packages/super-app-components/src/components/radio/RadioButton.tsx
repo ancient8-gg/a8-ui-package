@@ -1,19 +1,22 @@
-import React, { forwardRef } from 'react'
-import { cn } from '@/utils'
+import React, {
+  ChangeEvent,
+  forwardRef,
+  InputHTMLAttributes,
+  useCallback,
+} from 'react'
+
 import { radioDotVariants, radioOuterVariants } from './radio-button-helper'
+import { cn } from '@/utils'
 
 type RadioButtonSize = 'sm' | 'md' | 'lg'
 
 export type RadioButtonProps = {
-  value: string
-  checked?: boolean
-  onChange?: (value: string) => void
-  disabled?: boolean
+  classNames?: {
+    wrapper?: string
+    text?: string
+  }
   size?: RadioButtonSize
-  children?: React.ReactNode
-  name?: string
-  className?: string
-}
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'>
 
 const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   (
@@ -25,16 +28,29 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       size = 'md',
       children,
       name,
-      className,
+      classNames,
+      ...rest
     },
     ref,
   ) => {
+    const handleChange = useCallback(
+      (e: ChangeEvent<HTMLInputElement>) => {
+        if (disabled) {
+          e.preventDefault()
+          return
+        }
+
+        onChange?.(e)
+      },
+      [disabled, onChange],
+    )
+
     return (
       <label
         className={cn(
           'inline-flex cursor-pointer items-center',
           disabled && 'opacity-50',
-          className,
+          classNames?.wrapper,
         )}
       >
         <input
@@ -44,8 +60,9 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           value={value}
           checked={checked}
           disabled={disabled}
-          onChange={() => !disabled && onChange?.(value)}
+          onChange={handleChange}
           className="peer sr-only"
+          {...rest}
         />
 
         <div className={cn(radioOuterVariants({ size, checked }))}>
@@ -58,7 +75,9 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           />
         </div>
 
-        <span className="ml-2">{children ?? value}</span>
+        <span className={cn('ml-2', classNames?.text)}>
+          {children ?? value}
+        </span>
       </label>
     )
   },
