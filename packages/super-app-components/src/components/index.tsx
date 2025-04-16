@@ -13,3 +13,6 @@ export { default as Layout } from './layout'
 export type { LayoutProps } from './layout'
 
 export { default as Footer } from './footer'
+
+export { default as RadioButton } from './radio'
+export type { RadioButtonProps } from './radio'
