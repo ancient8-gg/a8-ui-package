@@ -1,4 +1,5 @@
-import React, { forwardRef, useState } from 'react'
+import React, { forwardRef, HTMLAttributes, ReactNode, useState } from 'react'
+
 import { tooltipArrowVariants, tooltipContentVariants } from './tooltip-helper'
 import { cn } from '@/utils'
 
@@ -7,6 +8,7 @@ type TooltipVariant = 'plain' | 'solid'
 type TooltipPosition = 'top' | 'bottom' | 'left' | 'right'
 
 export type TooltipProps = {
+  content: ReactNode
   size?: TooltipSize
   variant?: TooltipVariant
   position?: TooltipPosition
@@ -14,7 +16,7 @@ export type TooltipProps = {
     wrapper?: string
     content?: string
   }
-} & React.HTMLAttributes<HTMLDivElement>
+} & Omit<HTMLAttributes<HTMLDivElement>, 'content'>
 
 const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (
