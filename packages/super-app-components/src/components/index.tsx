@@ -19,3 +19,6 @@ export { default as Loading } from './loading'
 export type { LoadingProps } from './loading'
 
 export { default as Footer } from './footer'
+
+export { default as RadioButton } from './radio'
+export type { RadioButtonProps } from './radio'
