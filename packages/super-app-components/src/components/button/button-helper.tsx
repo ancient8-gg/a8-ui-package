@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority'
 
 export const buttonVariants = cva(
-  'flex cursor-pointer items-center shadow-none transition',
+  'flex cursor-pointer items-center justify-center shadow-none transition-all',
   {
     variants: {
       type: {
@@ -10,19 +10,22 @@ export const buttonVariants = cva(
       },
       variant: {
         solid: '',
-        lightSolid: '',
+        'light-solid': '',
         outline: '',
         ghost: '',
         text: '!h-fit !p-0',
       },
       size: {
-        xs: 'h-btn-xs rounded-xs px-btn-xs gap-1 text-[10px]',
-        sm: 'h-btn-sm px-btn-sm gap-1 rounded-sm text-[12px] font-medium',
-        md: 'h-btn-md px-btn-md gap-1.5 rounded-md text-[14px] font-medium',
-        lg: 'h-btn-lg px-btn-lg gap-1.5 rounded-lg text-[16px] font-bold',
+        xs: 'h-btn-xs rounded-xs px-btn-xs gap-1 text-[10px]/[1.2]',
+        sm: 'h-btn-sm px-btn-sm gap-1 rounded-sm text-[14px]/[1.2] font-medium',
+        md: 'h-btn-md px-btn-md gap-1.5 rounded-md text-[14px]/[1.2] font-medium',
+        lg: 'h-btn-lg px-btn-lg gap-1.5 rounded-lg text-[16px]/[1.2] font-bold',
       },
       disabled: {
-        true: 'cursor-not-allowed',
+        true: '!cursor-not-allowed',
+      },
+      loading: {
+        true: '!cursor-not-allowed',
       },
       block: {
         true: 'w-full',
@@ -37,7 +40,7 @@ export const buttonVariants = cva(
       },
       {
         type: 'primary',
-        variant: 'lightSolid',
+        variant: 'light-solid',
         class: 'text-primary bg-primary-800 hover:bg-primary-700',
       },
       {
@@ -61,7 +64,7 @@ export const buttonVariants = cva(
       },
       {
         type: 'neutral',
-        variant: 'lightSolid',
+        variant: 'light-solid',
         class: 'bg-neutral-50 hover:bg-neutral-100',
       },
       {
@@ -80,7 +83,7 @@ export const buttonVariants = cva(
       // disabled
       {
         type: ['primary', 'neutral'],
-        variant: ['solid', 'lightSolid'],
+        variant: ['solid', 'light-solid'],
         disabled: true,
         class: 'bg-neutral-25 hover:bg-neutral-25 text-neutral-100',
       },

@@ -6,7 +6,7 @@ import { type MenuProps, Menu, Image } from 'antd'
 import { useSiderItems } from './hooks/useSiderItems'
 import { useCollapseStore } from './stores/collapse.store'
 
-import { removeTrailingSlash } from '@/utils/removeTrailingSlash'
+import { removeTrailingSlash } from '@/utils/remove-trailing-slash'
 
 type MenuItem = Required<MenuProps>['items'][number]
 
@@ -42,8 +42,8 @@ function SiderMenu() {
   }, [])
 
   const { items, hasChildren } = useMemo(() => {
-    let hasChildren: string[] = []
-    let items: MenuItem[] = []
+    const hasChildren: string[] = []
+    const items: MenuItem[] = []
 
     data.forEach((item) => {
       if (item.children?.length) {
@@ -100,7 +100,7 @@ function SiderMenu() {
       items,
       hasChildren,
     }
-  }, [data])
+  }, [data, isMenuSelected, setSiderCollapsed])
 
   useEffect(() => {
     if (siderCollapsed) {

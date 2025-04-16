@@ -1,7 +1,10 @@
 import type { Config } from 'tailwindcss'
 
 export default {
-  content: ['./src/components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/assets/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       borderRadius: {
@@ -60,6 +63,12 @@ export default {
         success: {
           DEFAULT: '',
         },
+      },
+      opacity: {
+        4: '0.04',
+        6: '0.06',
+        8: '0.08',
+        12: '0.12',
       },
       screens: {
         mobile: { max: '991px' },

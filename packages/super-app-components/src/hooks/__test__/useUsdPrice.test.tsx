@@ -1,14 +1,14 @@
-import { describe, test, expect, vi } from 'vitest'
+import { describe, test, expect, vi, type MockedFunction } from 'vitest'
 import { renderHook, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { PropsWithChildren } from 'react'
+import axios from 'axios'
 
 import { HeaderConfigContext } from '@/components/header/context'
 
-vi.mock('axios')
+import { useUsdPrice } from '@/hooks'
 
-import axios from 'axios'
-import { useUsdPrice } from '../useUsdPrice'
+vi.mock('axios')
 
 const Wrapper = ({ children }: PropsWithChildren) => {
   const queryClient = new QueryClient()
@@ -18,7 +18,7 @@ const Wrapper = ({ children }: PropsWithChildren) => {
       <HeaderConfigContext.Provider
         value={{
           header: {
-            baseUrl: 'https://mock-api.com',
+            strapiApi: 'https://mock-api.com',
             utilsApi: 'https://mock-api.com',
           },
         }}
@@ -41,7 +41,7 @@ describe('useUsdPrice', () => {
   })
 
   test('returns updated prices from API', async () => {
-    ;(axios.get as any).mockResolvedValueOnce({
+    ;(axios.get as MockedFunction<typeof axios.get>).mockResolvedValueOnce({
       data: {
         ancient8: { usd: 0.6 },
         ethereum: { usd: 3600 },
@@ -59,7 +59,7 @@ describe('useUsdPrice', () => {
   })
 
   test('returns 0 for missing token in API', async () => {
-    ;(axios.get as any).mockResolvedValueOnce({
+    ;(axios.get as MockedFunction<typeof axios.get>).mockResolvedValueOnce({
       data: {
         ethereum: { usd: 3000 },
       },

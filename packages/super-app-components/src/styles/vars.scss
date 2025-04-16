@@ -1,6 +1,6 @@
 :root {
   /**
-   * Colors
+   * Seed Colors
    */
   --color-primary-25: #f7fbf2;
   --color-primary-50: #f6ffeb;
@@ -37,6 +37,16 @@
   --color-error-700: #e95a71;
 
   /**
+  * Size
+  */
+  --size-xxxs: 16px;
+  --size-xxs: 20px;
+  --size-xs: 24px;
+  --size-sm: 36px;
+  --size-md: 44px;
+  --size-lg: 56px;
+
+  /**
    * border-radius
    */
   --border-radius-full: 9999px;
@@ -56,10 +66,10 @@
   /**
    * Button
    */
-  --button-height-xs: 24px;
-  --button-height-sm: 36px;
-  --button-height-md: 44px;
-  --button-height-lg: 56px;
+  --button-height-xs: var(--size-xs);
+  --button-height-sm: var(--size-sm);
+  --button-height-md: var(--size-md);
+  --button-height-lg: var(--size-lg);
 
   --button-padding-xs: 6px;
   --button-padding-sm: 8px;
