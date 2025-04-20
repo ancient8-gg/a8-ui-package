@@ -75,7 +75,7 @@ describe('Checkbox', () => {
 
     expect(input.className).toMatch(/checked:bg-primary/)
     expect(input.className).toMatch(/border-neutral-200/)
-    expect(input.className).toMatch(/hover:border-primary/)
+    expect(input.className).toMatch(/hover:border-neutral-100/)
   })
 
   test('renders variant: outline', () => {

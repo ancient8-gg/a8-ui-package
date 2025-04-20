@@ -11,13 +11,13 @@ export const checkboxVariants = cva(
         lg: 'size-6',
       },
       checked: {
-        true: 'checked:border-primary',
+        true: 'checked:border-primary hover:!border-primary-600 hover:bg-primary-600',
       },
       variant: {
         solid:
-          'checked:bg-primary hover:border-primary border-neutral-200 bg-transparent',
+          'checked:bg-primary border-neutral-200 bg-transparent hover:border-neutral-100',
         outline:
-          'hover:border-primary border-neutral-200 bg-transparent checked:bg-transparent',
+          'hover:border-primary hover:bg-primary-800 border-neutral-200 bg-transparent checked:bg-transparent',
       },
       disabled: {
         true: 'cursor-not-allowed',
