@@ -92,7 +92,9 @@ const Chip = forwardRef<HTMLSpanElement, ChipProps>(
       >
         {/* Icon */}
         {showIcon && !icon && (
-          <span className={chipIconVariants({ type, variant, disabled })}>
+          <span
+            className={chipIconVariants({ type, variant, checked, disabled })}
+          >
             {checked ? <CheckedCircleIcon /> : <InformationIcon />}
           </span>
         )}

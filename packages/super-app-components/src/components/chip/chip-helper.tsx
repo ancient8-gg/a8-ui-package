@@ -127,17 +127,23 @@ export const chipIconVariants = cva('', {
       disabled: true,
       class: '!text-neutral-50',
     },
-
     {
       type: 'neutral',
       variant: 'outline',
       disabled: true,
       class: '!text-neutral-300',
     },
+    {
+      type: 'primary',
+      variant: 'solid',
+      checked: false,
+      class: 'text-primary',
+    },
   ],
   defaultVariants: {
     type: 'primary',
     variant: 'solid',
+    checked: false,
     disabled: false,
   },
 })

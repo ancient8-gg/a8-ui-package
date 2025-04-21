@@ -32,6 +32,9 @@ function ChipPage() {
             <Chip type="neutral" checked showIcon closeIcon>
               Chips
             </Chip>
+            <Chip type="neutral" showIcon>
+              Chips
+            </Chip>
             <Chip type="neutral" variant="outline" checked showIcon>
               Chips
             </Chip>
@@ -89,6 +92,9 @@ function ChipPage() {
               Chips
             </Chip>
             <Chip type="primary" checked showIcon closeIcon>
+              Chips
+            </Chip>
+            <Chip type="primary" showIcon>
               Chips
             </Chip>
             <Chip type="primary" variant="outline" checked showIcon>

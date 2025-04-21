@@ -28,6 +28,10 @@ function CheckboxPage() {
               <span>Outline:</span>{' '}
               <Checkbox variant="outline" checked={true} />
             </div>
+            <div className="flex items-center gap-2">
+              <span>Transparent:</span>{' '}
+              <Checkbox variant="transparent" checked={true} />
+            </div>
           </div>
         </div>
 
@@ -41,25 +45,22 @@ function CheckboxPage() {
           <div className="flex gap-4">
             <Checkbox disabled />
             <Checkbox checked={true} disabled />
+            <Checkbox variant="outline" checked={true} disabled />
           </div>
         </div>
 
         <div>
-          <p className="text-base">Sizes</p>
+          <p className="text-base">Sizes (xxxs - xxs)</p>
 
           <div className="flex flex-col gap-4">
             <div className="flex gap-4">
-              <Checkbox size="xs" checked={false} />
-              <Checkbox size="sm" checked={false} />
-              <Checkbox size="md" checked={false} />
-              <Checkbox size="lg" checked={false} />
+              <Checkbox size="xxxs" checked={false} />
+              <Checkbox size="xxs" checked={false} />
             </div>
 
             <div className="flex gap-4">
-              <Checkbox size="xs" checked={true} />
-              <Checkbox size="sm" checked={true} />
-              <Checkbox size="md" checked={true} />
-              <Checkbox size="lg" checked={true} />
+              <Checkbox size="xxxs" checked={true} />
+              <Checkbox size="xxs" checked={true} />
             </div>
           </div>
         </div>
