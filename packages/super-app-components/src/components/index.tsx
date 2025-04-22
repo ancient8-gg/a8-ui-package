@@ -26,3 +26,5 @@ export type { RadioButtonProps } from './radio'
 export { default as Tooltip } from './tooltip'
 export type { TooltipProps } from './tooltip'
 
+export { default as Chip } from './chip'
+export type { ChipProps } from './chip'

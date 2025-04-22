@@ -5,27 +5,57 @@ export const checkboxVariants = cva(
   {
     variants: {
       size: {
-        xs: 'size-3',
-        sm: 'size-4',
-        md: 'size-5',
-        lg: 'size-6',
+        xxxs: 'size-4',
+        xxs: 'size-5',
       },
       checked: {
-        true: 'checked:border-primary',
+        true: '',
+        false: '',
       },
       variant: {
-        solid:
-          'checked:bg-primary hover:border-primary border-neutral-200 bg-transparent',
-        outline:
-          'hover:border-primary border-neutral-200 bg-transparent checked:bg-transparent',
+        solid: [
+          'checked:bg-primary hover:bg-primary-600 bg-transparent',
+          'checked:border-primary hover:border-primary-600 border-neutral-200',
+        ],
+        outline: [
+          'hover:bg-primary-800 bg-transparent checked:bg-transparent',
+          'checked:border-primary hover:border-primary border-neutral-200',
+        ],
+        ghost:
+          'checked:bg-primary border-neutral-200 bg-transparent hover:border-neutral-100',
+        transparent: '!bg-transparent',
       },
       disabled: {
         true: 'cursor-not-allowed',
         false: 'cursor-pointer',
       },
     },
+    compoundVariants: [
+      {
+        variant: 'transparent',
+        checked: true,
+        class: 'border-none',
+      },
+      {
+        variant: 'solid',
+        checked: false,
+        class: '!bg-neutral-25 border-neutral-50 hover:border-neutral-100',
+      },
+      {
+        variant: 'solid',
+        checked: true,
+        disabled: true,
+        class: '!bg-neutral-25 !border-neutral-25',
+      },
+      {
+        variant: 'outline',
+        checked: true,
+        disabled: true,
+        class: '!border-neutral-50 !bg-transparent',
+      },
+    ],
     defaultVariants: {
-      size: 'md',
+      size: 'xxs',
       disabled: false,
       variant: 'solid',
     },
@@ -35,18 +65,42 @@ export const checkboxVariants = cva(
 export const checkboxIconVariants = cva('pointer-events-none absolute', {
   variants: {
     size: {
-      xs: 'size-2',
-      sm: 'size-2.5',
-      md: 'size-3',
-      lg: 'size-3.5',
+      xxxs: 'size-2.5',
+      xxs: 'size-3',
     },
     variant: {
       solid: 'text-black',
       outline: 'text-primary',
+      ghost: 'text-black',
+      transparent: 'text-primary',
+    },
+    disabled: {
+      true: '',
+      false: '',
+    },
+    checked: {
+      true: '',
+      false: '',
     },
   },
+  compoundVariants: [
+    {
+      variant: 'solid',
+      checked: true,
+      disabled: true,
+      class: '!text-neutral-50',
+    },
+    {
+      variant: 'outline',
+      checked: true,
+      disabled: true,
+      class: 'border-neutral-50 !text-neutral-50',
+    },
+  ],
   defaultVariants: {
-    size: 'md',
+    size: 'xxs',
     variant: 'solid',
+    disabled: false,
+    checked: false,
   },
 })
