@@ -60,8 +60,8 @@ describe('Checkbox', () => {
     expect(input.checked).toBe(true)
   })
 
-  test('renders small size', () => {
-    const { container } = render(<Checkbox size="sm" />)
+  test('renders extra extra extra small size', () => {
+    const { container } = render(<Checkbox size="xxxs" />)
     const input = container.querySelector(
       'input[type="checkbox"]',
     ) as HTMLInputElement
@@ -75,7 +75,7 @@ describe('Checkbox', () => {
 
     expect(input.className).toMatch(/checked:bg-primary/)
     expect(input.className).toMatch(/border-neutral-200/)
-    expect(input.className).toMatch(/hover:border-primary/)
+    expect(input.className).toMatch(/hover:border-primary-600/)
   })
 
   test('renders variant: outline', () => {

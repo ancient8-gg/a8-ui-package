@@ -28,3 +28,6 @@ export type { TooltipProps } from './tooltip'
 
 export { default as Switch } from './switch'
 export type { SwitchProps } from './switch'
+
+export { default as Chip } from './chip'
+export type { ChipProps } from './chip'

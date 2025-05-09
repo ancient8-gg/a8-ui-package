@@ -5,8 +5,8 @@ import { checkboxIconVariants, checkboxVariants } from './checkbox-helper'
 
 import { CheckedIcon } from '@/assets/icons'
 
-type CheckboxVariant = 'solid' | 'outline'
-type CheckboxSize = 'xs' | 'sm' | 'md' | 'lg'
+type CheckboxVariant = 'solid' | 'outline' | 'ghost' | 'transparent'
+type CheckboxSize = 'xxxs' | 'xxs'
 
 export type CheckboxProps = {
   classNames?: {
@@ -24,7 +24,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
     disabled,
     checked,
     variant = 'solid',
-    size = 'md',
+    size = 'xxs',
     onChange,
     ...rest
   } = props
@@ -65,7 +65,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
       {checked && (
         <span
           className={cn(
-            checkboxIconVariants({ size, variant }),
+            checkboxIconVariants({ size, variant, checked, disabled }),
             classNames?.icon,
           )}
         >
