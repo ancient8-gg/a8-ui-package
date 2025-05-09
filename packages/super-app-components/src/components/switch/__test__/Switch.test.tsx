@@ -31,7 +31,7 @@ describe('Switch Component', () => {
     expect(thumb).toHaveClass('bg-[#000]')
   })
 
-  test('should call onChange handler when clicked', () => {
+  test('call onChange handler when clicked', () => {
     const onChange = vi.fn()
     render(<Switch onChange={onChange} checked />)
     const button = screen.getByRole('button')
@@ -39,7 +39,7 @@ describe('Switch Component', () => {
     expect(onChange).toHaveBeenCalledTimes(1)
   })
 
-  test('should trigger onClick handler when clicked', () => {
+  test('trigger onClick handler when clicked', () => {
     const onClick = vi.fn()
     render(<Switch onClick={onClick} checked />)
     const button = screen.getByRole('button')

@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority'
 
 export const switchTrackVariants = cva(
-  'relative inline-flex items-center rounded-full transition-all duration-300 ease-in-out focus:outline-none',
+  'relative inline-flex items-center rounded-full transition-all duration-300 ease-in-out focus:outline-none hover:cursor-pointer',
   {
     variants: {
       size: {

@@ -36,7 +36,7 @@ const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         onClick?.(!checked, e)
         onChange?.(!checked, e)
       },
-      [checked],
+      [checked, onChange, onClick],
     )
 
     return (
