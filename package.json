@@ -7,6 +7,8 @@
     "dev:vite": "turbo run dev --filter=vite-app --filter=@ancient8/components --parallel",
     "dev:react": "turbo run dev --filter=react-app --filter=@ancient8/components --parallel",
     "dev:next": "turbo run dev --filter=next-15-app --filter=@ancient8/components --parallel",
+    "test:pkg": "turbo run test --filter=@ancient8/components",
+    "lint:pkg": "turbo run lint --filter=@ancient8/components",
     "clean": "turbo run clean; rimraf .turbo",
     "version-packages": "changeset version",
     "release": "pnpm build && changeset publish"
@@ -16,6 +18,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
     "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "rimraf": "^6.0.1",
     "turbo": "^2.1.3"
   },

@@ -1,11 +1,11 @@
 import { Flex } from 'antd'
 import { Menu as MenuIcon, CloseCircle as CloseIcon } from 'iconsax-react'
 
-import UserNavMenu from 'components/header/UserNavMenu'
-import { Brand } from 'assets/icons'
+import UserNavMenu from '@/components/header/UserNavMenu'
+import { Brand } from '@/assets/icons'
 
-import useIsMobile from 'hooks/useIsMobile'
-import { useCollapseStore } from 'components/sider/stores/collapse.store'
+import useIsMobile from '@/hooks/useIsMobile'
+import { useCollapseStore } from '@/components/sider/stores/collapse.store'
 import { HeaderConfigContext } from './context'
 
 import type { HeaderProps } from './types'

@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "clean": "rimraf build && rimraf .turbo"
+    "clean": "rimraf dist && rimraf .turbo"
   },
   "dependencies": {
     "@ancient8/components": "workspace:*",

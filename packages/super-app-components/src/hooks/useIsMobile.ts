@@ -1,15 +1,29 @@
-import { Grid } from 'antd'
+import { useEffect, useState } from 'react'
+import { isBrowser, offEvent, onEvent } from '@/utils/common'
 
-const { useBreakpoint } = Grid
+const useIsMobile = (initialValue = false) => {
+  const [isMobile, setIsMobile] = useState(initialValue)
 
-const useIsMobile = () => {
-  const { lg, xl, xxl } = useBreakpoint()
+  useEffect(() => {
+    if (isBrowser) {
+      const handleResize = () => {
+        console.log(window.innerWidth)
+        if (window.innerWidth < 992) {
+          setIsMobile(true)
+        } else {
+          setIsMobile(false)
+        }
+      }
 
-  if (lg === undefined || xl === undefined || xxl === undefined)
-    return undefined
+      onEvent(window, 'resize', handleResize)
 
-  if (lg !== false || xl !== false || xxl !== false) return false
-  return true
+      return () => {
+        offEvent(window, 'resize', handleResize)
+      }
+    }
+  }, [])
+
+  return isMobile
 }
 
 export default useIsMobile

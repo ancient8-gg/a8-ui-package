@@ -7,7 +7,7 @@ import SiderMenu from './SiderMenu'
 import { SiderConfigContext } from './context'
 
 import { useCollapseStore } from './stores/collapse.store'
-import useIsMobile from 'hooks/useIsMobile'
+import useIsMobile from '@/hooks/useIsMobile'
 
 import type { SiderProps } from './types'
 

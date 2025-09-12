@@ -1,14 +1,3 @@
-import { IsolateTheme } from 'base'
-import InternalFooter from './Footer'
-
-function Footer() {
-  return (
-    <IsolateTheme>
-      <InternalFooter />
-    </IsolateTheme>
-  )
-}
-
-export { InternalFooter }
+import Footer from './Footer'
 
 export default Footer

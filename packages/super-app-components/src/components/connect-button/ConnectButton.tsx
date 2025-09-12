@@ -1,30 +1,21 @@
 import * as React from 'react'
-import clsx from 'clsx'
 import { ConnectButton as RainbowKitConnectButton } from '@rainbow-me/rainbowkit'
 
-import {
-  Button,
-  type ButtonProps,
-  Flex,
-  Typography,
-  Avatar,
-  Divider,
-} from 'antd'
-
+import { Button, type ButtonProps } from '@/components'
 import AccountAvatar from './AccountAvatar'
 
-import useIsMobile from 'hooks/useIsMobile'
+import { cn, shortenAddress } from '@/utils'
 
-import { shortenAddress } from 'utils'
+import { WalletIcon } from '@/assets/icons'
 
 export type ConnectButtonProps = {
-  isSwitchChain?: boolean
   className?: string
   classNames?: {
     account?: string
     balance?: string
     connect?: string
     switch?: string
+    address?: string
   } & ButtonProps['classNames']
 } & Omit<ButtonProps, 'classNames'>
 
@@ -32,8 +23,17 @@ const InternalConnectButton = React.forwardRef<
   HTMLButtonElement,
   ConnectButtonProps
 >((props, ref) => {
-  const { isSwitchChain, className, classNames, ...params } = props
-  const isMobile = useIsMobile()
+  const {
+    size = 'md',
+    variant = 'solid',
+    type = 'primary',
+    className,
+    icons = {
+      prefix: <WalletIcon />,
+    },
+    classNames,
+    ...params
+  } = props
 
   return (
     <RainbowKitConnectButton.Custom>
@@ -57,15 +57,14 @@ const InternalConnectButton = React.forwardRef<
             <Button
               {...params}
               ref={ref}
-              type="primary"
               onClick={openConnectModal}
-              className={clsx(
-                'a8-pkg-connect-btn',
-                className,
-                classNames?.connect ?? '',
-              )}
+              className={cn(className, classNames?.connect)}
+              size={size}
+              type={type}
+              variant={variant}
+              icons={icons}
             >
-              Connect {!isMobile && 'Wallet'}
+              Connect wallet
             </Button>
           )
 
@@ -74,13 +73,11 @@ const InternalConnectButton = React.forwardRef<
             <Button
               {...params}
               ref={ref}
-              type="primary"
               onClick={openChainModal}
-              className={clsx(
-                'a8-pkg-connect-btn',
-                className,
-                classNames?.switch ?? '',
-              )}
+              className={cn(className, classNames?.switch)}
+              size={size}
+              type={type}
+              variant={variant}
             >
               Switch network
             </Button>
@@ -90,50 +87,52 @@ const InternalConnectButton = React.forwardRef<
           <Button
             {...params}
             ref={ref}
-            className={clsx(
-              'a8-pkg-user-nav-btn',
+            className={cn(
+              'border-neutral-25 hover:border-neutral-25 bg-transparent hover:bg-white/10',
+              'mobile:w-9',
               className,
-              classNames?.account ?? '',
+              classNames?.account,
             )}
+            size={size}
+            type="neutral"
+            variant="outline"
           >
-            {!isMobile && (
-              <React.Fragment>
-                <Flex
-                  className={clsx(
-                    'a8-pkg-balance',
-                    className,
-                    classNames?.balance ?? '',
-                  )}
-                  align="center"
-                  gap={8}
-                >
-                  <Avatar size={24} src={chain.iconUrl} />
-                  <Typography.Text>
-                    {account.displayBalance ?? '0'}
-                  </Typography.Text>
-                </Flex>
-
-                <Divider type="vertical" style={{ height: 22 }} />
-              </React.Fragment>
-            )}
-
-            <AccountAvatar
-              address={account.address}
-              ensAvatar={account.ensAvatar}
-            />
-
-            {!isMobile && (
-              <Typography.Text
-                className={clsx('a8-pkg-user-nav-btn--user-name')}
+            <div className="flex items-center gap-1.5">
+              <div
+                className={cn(
+                  'mobile:!hidden flex items-center gap-1',
+                  className,
+                  classNames?.balance ?? '',
+                )}
               >
-                {shortenAddress(account.address)}
-              </Typography.Text>
-            )}
+                <img
+                  className="size-[18px] rounded-full"
+                  src={chain.iconUrl}
+                  alt="chain-img"
+                />
+                <span>{account.displayBalance ?? '0'}</span>
+              </div>
+
+              <div className="mobile:!hidden bg-white/12 h-[15px] w-[1px]"></div>
+
+              <div className="flex items-center gap-1">
+                <AccountAvatar
+                  address={account.address}
+                  ensAvatar={account.ensAvatar}
+                />
+
+                <span className={cn('mobile:hidden', classNames?.address)}>
+                  {shortenAddress(account.address)}
+                </span>
+              </div>
+            </div>
           </Button>
         )
       }}
     </RainbowKitConnectButton.Custom>
   )
 })
+
+InternalConnectButton.displayName = 'ConnectButton'
 
 export default InternalConnectButton
