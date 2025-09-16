@@ -72,6 +72,7 @@ export default {
       },
       screens: {
         mobile: { max: '991px' },
+        sm: { max: '540px' }
       },
     },
   },

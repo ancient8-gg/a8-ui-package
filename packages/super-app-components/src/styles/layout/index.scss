@@ -31,30 +31,51 @@
 // disclaimer
 
 .a8-pkg-modal .a8-pkg-modal-content {
-  padding: 24px 32px;
+  padding: 24px 16px 24px 32px;
   background-color: #171819;
   color: white;
   border-radius: 16px;
   border: solid 1px #FFFFFF1F;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 540px) {
+  .a8-pkg-modal .a8-pkg-modal-content {
+    padding: 20px 16px 20px 20px;
+  }
+
+  .a8-pkg-modal .a8-pkg-modal-content{
+    width: calc(100vw - 32px) !important;
+    max-width: none !important;
+  }
 }
 
 .scroller::-webkit-scrollbar {
-  width: 4px; /* thin scrollbar */
+  width: 4px;
+  /* thin scrollbar */
   height: 111.741px;
 }
 
 .scroller::-webkit-scrollbar-track {
-  background: transparent; /* no track */
-  margin: 4px 0; /* optional spacing */
+  background: transparent;
+  /* no track */
+  margin: 4px 0;
+  /* optional spacing */
 }
 
 .scroller::-webkit-scrollbar-thumb {
-  background: #252628; /* scrollbar thumb */
-  border-radius: 21px; /* round edges */
+  background: #252628;
+  /* scrollbar thumb */
+  border-radius: 21px;
+  /* round edges */
   min-height: 40px;
 }
 
 .scroller {
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #252628 transparent; /* Firefox */
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: #252628 transparent;
+  /* Firefox */
 }
