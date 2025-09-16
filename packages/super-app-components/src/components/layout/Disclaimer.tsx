@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable react/no-unescaped-entities */
+
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "antd";
 import Button from "../button";
