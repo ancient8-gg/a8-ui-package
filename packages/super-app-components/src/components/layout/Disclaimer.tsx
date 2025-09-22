@@ -18,11 +18,11 @@ type LinkProps = {
 }
 
 const Heading = ({ children }: ContentProps) => {
-  return <h2 className="font-bold text-[15px]/[1.4] text-[#F5F6F7] sm:text-[14px]">{children}</h2>
+  return <h2 className="!font-bold !text-[15px]/[1.4] !text-[#F5F6F7] sm:!text-[14px]">{children}</h2>
 }
 
 const Content = ({ children, className }: ContentProps) => {
-  return <div className={cn("font-normal text-[15px]/[1.5] text-[#E1E2E5] flex flex-col sm:text-[14px]", className)}>{children}</div>
+  return <div className={cn("!font-normal !text-[15px]/[1.5] !text-[#E1E2E5] !flex !flex-col sm:!text-[14px]", className)}>{children}</div>
 }
 
 const Link = ({ children, href }: LinkProps) => {
@@ -31,7 +31,7 @@ const Link = ({ children, href }: LinkProps) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-bold text-[15px]/[1.4] text-[#CEFF70] sm:text-[14px]"
+      className="!font-bold !text-[15px]/[1.4] !text-[#CEFF70] sm:!text-[14px]"
     >
       {children}
     </a>
@@ -39,7 +39,7 @@ const Link = ({ children, href }: LinkProps) => {
 }
 
 const Terms = () => {
-  return <div className="flex flex-col gap-y-2 text-left">
+  return <div className="!flex !flex-col !gap-y-2 !text-left">
     <Content>
       <span>This end-user agreement (the "Agreement") should be read by you (the "User" or "you") in its entirety prior to your use of Ancient8’s service or products. Be aware that this Agreement constitutes a legally binding agreement between you and Ancient8 (referred to herein as "Ancient8", "us" or "we") which owns the website on the Internet at <Link href="https://ancient8.gg/">https://ancient8.gg/</Link> (the “Site” or “Platform”) and operates the Service (the "Service"). By using the Site, its subdomains, and any services available within the site, including sm applications (collectively the "Services"), you agree to be bound by these Terms of Service as well as our Privacy Policy. If you do not agree to the Terms of Service herein, do not use the Site or Services. The Site and Services are provided by Metacyber8 Limited (also referred to as “Company”) a company incorporated in the British Virgin Islands (BVI).</span>
       <br />
@@ -846,26 +846,26 @@ export default function DisclaimerModal() {
       )}
     >
 
-      <h2 className="text-[18px] text-[#CEFF70] text-left sm:text-base font-bold mb-6 sm:mb-5">
+      <h2 className="!text-[18px] !text-[#CEFF70] !text-left sm:!text-base !font-bold !mb-6 sm:!mb-5">
         Disclaimer & Terms of Service
       </h2>
 
-      <div className="flex flex-col gap-5 flex-1 mb-5">
+      <div className="!flex !flex-col !gap-5 !flex-1 !mb-5">
         {/* scrollable content */}
-        <div className="relative h-[342px] sm:h-[257px]">
+        <div className="!relative !h-[342px] sm:!h-[257px]">
           <div
             ref={scrollRef}
-            className={cn("overflow-y-auto scroller", "pr-4 sm:pr-1", "h-[342px] sm:h-[257px]")}
+            className={cn("overflow-y-auto scroller pr-4 sm:!pr-1", "!h-[342px] sm:!h-[257px]")}
           >
             <Terms />
           </div>
           {!atBottom && (
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[84px] bg-[linear-gradient(180deg,rgba(10,15,6,0)_0%,#171819_100%)]" />
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 !h-[84px] bg-[linear-gradient(180deg,rgba(10,15,6,0)_0%,#171819_100%)]" />
           )}
         </div>
       </div>
 
-      <div className="flex flex-col gap-5 pr-4 sm:pr-1">
+      <div className="flex flex-col gap-5 pr-4 sm:!pr-1">
         <p className="text-base leading-[1.5] tracking-[0.2] text-[#FFFFFFE5] italic font-normal sm:!text-[14px]">
           By clicking accept, you here by acknowledge that you have read and accept the{" "}
           <a

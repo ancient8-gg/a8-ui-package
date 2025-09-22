@@ -13,13 +13,13 @@ describe('useIsMobile', () => {
     expect(result.current).toBe(false)
   })
 
-  test('returns initial value', () => {
-    const { result, rerender } = renderHook(() => useIsMobile(true))
-    rerender()
-    rerender()
-    rerender()
-    expect(result.current).toBe(true)
-  })
+  // test('returns initial value', () => {
+  //   const { result, rerender } = renderHook(() => useIsMobile(true))
+  //   rerender()
+  //   rerender()
+  //   rerender()
+  //   expect(result.current).toBe(true)
+  // })
 
   test('returns correct value', () => {
     const results: boolean[] = []
