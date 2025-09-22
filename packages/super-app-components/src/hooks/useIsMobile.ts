@@ -7,7 +7,6 @@ const useIsMobile = (initialValue = false) => {
   useEffect(() => {
     if (isBrowser) {
       const handleResize = () => {
-        console.log(window.innerWidth)
         if (window.innerWidth < 992) {
           setIsMobile(true)
         } else {
@@ -16,6 +15,8 @@ const useIsMobile = (initialValue = false) => {
       }
 
       onEvent(window, 'resize', handleResize)
+
+      handleResize()
 
       return () => {
         offEvent(window, 'resize', handleResize)
