@@ -820,7 +820,7 @@ export default function DisclaimerModal() {
     const disclaimer = localStorage.getItem("disclaimer");
 
     if (!disclaimer || disclaimer !== VERSION) {
-      setOpen(false);
+      setOpen(true);
     }
   }, []);
 
