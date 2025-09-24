@@ -18,11 +18,11 @@ type LinkProps = {
 }
 
 const Heading = ({ children }: ContentProps) => {
-  return <h2 className="!font-bold !text-[15px]/[1.4] !text-[#F5F6F7] sm:!text-[14px]">{children}</h2>
+  return <h2 className="!font-bold !text-[15px]/[1.4] !text-[#F5F6F7] sm:!text-[14px]/[1.5]">{children}</h2>
 }
 
 const Content = ({ children, className }: ContentProps) => {
-  return <div className={cn("!font-normal !text-[15px]/[1.5] !text-[#E1E2E5] !flex !flex-col sm:!text-[14px]", className)}>{children}</div>
+  return <div className={cn("!font-normal !text-[15px]/[1.5] !text-[#E1E2E5] !flex !flex-col sm:!text-[14px]/[1.5]", className)}>{children}</div>
 }
 
 const Link = ({ children, href }: LinkProps) => {
@@ -31,7 +31,7 @@ const Link = ({ children, href }: LinkProps) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="!font-bold !text-[15px]/[1.4] !text-[#CEFF70] sm:!text-[14px]"
+      className="!font-bold !text-[15px]/[1.4] !text-[#CEFF70] sm:!text-[14px]/[1.4]"
     >
       {children}
     </a>
@@ -878,7 +878,7 @@ export default function DisclaimerModal() {
           </a>
         </p>
 
-        <Button className={cn("bg-[#D8FF76] sm:w-full sm:text-center", "!h-[45px] sm:!h-[40px] sm:!px-0")} size="sm" onClick={handleAccept}>
+        <Button type="primary" className={cn("bg-[#D8FF76] sm:w-full sm:text-center", "!h-[45px] sm:!h-[40px] sm:!px-0")} size="sm" onClick={handleAccept}>
           <p className="text-base text-[#072B09] font-medium sm:!text-[14px]">I have read and accpet the Terms of Service</p>
         </Button>
       </div>
